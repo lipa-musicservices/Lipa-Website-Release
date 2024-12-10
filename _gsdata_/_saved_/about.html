@@ -3,30 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - Events</title>
+    <title>LiPa - About</title>
     <link rel="stylesheet" href="Style.css"></link>
   </head>
 
   <body>
     <div id="HeadBar"></div>
     <div class="Spacer10"></div>
-    <div class="Headline1">EVENTS</div>
-    <div class="Headline2">Die Events unserer Partner-Bands</div>
-
+    <div class="Headline1">ÜBER UNS</div>
+    <div class="Headline2">Wir sind LiPa Music Services!</div>
     <div class="Spacer10"></div>
 
     <div class="PageBackground">
-      <table width="100%">
-        <tr height="600pt">
-          <th width="5%" class="PageSides"></th>
-          <th><iframe height="600pt" class="CalendarClass" width="100%" src="https://calendar.google.com/calendar/embed?src=76d0abec493ca1f4a553cc144d09b6a0c8157468351b3de837a58579e8aaa5a8%40group.calendar.google.com&ctz=Europe%2FBerlin"></iframe></th>
-          <th width="5%" class="PageSides"></th>
+      <table>
+        <tr>
+          <th class="PageSides"></th>
+          <th width=auto height="300pt"><div id="AboutGeneralText" class="StandardText1"></div></th>
+          <th class="PageSides"></th>
         </tr>
       </table>
-      
       <div class="Spacer10"></div>
-      <div class="Spacer10"></div>      
+      <div class="Headline2">Das Team:</div>
+      <div class="AboutTableDiv">
+        <table>
+          <tr>
+            <td width="auto" class="PageSides"></td>
+            <td width="10%"><div class="AboutHeadline3-1">Paul Dupont</div></td>
+            <td width="10%"><div class="AboutHeadline3-2">Lisa Römer</div></td>
+            <td width="auto" class="PageSides"></td>
+          </tr>
+          <tr width="100%">
+            <td width="auto" class="PageSides"></td>
+            <td width="20%" class="AboutTD">
+              <div class="PersonalPictureContainer1">
+                <img id="PersonalPicture1" width="100%" class="PersonalPicture" src="Resources/PersonalPictures/PersonalPictures1.PNG">
+                <div class="TextOverlay">
+                  <div class="PersonalPictureOverlayText" id="PersonalPictures1"></div>
+                </div>
+              </div>
+            </td>
+            <td width="20%" class="AboutTD">
+              <div class="PersonalPictureContainer2">
+                <img id="PersonalPicture2" width="100%" class="PersonalPicture" src="Resources/PersonalPictures/PersonalPictures2.PNG">
+                <div class="TextOverlay">
+                  <div class="PersonalPictureOverlayText" id="PersonalPictures2"></div>
+                </div>
+              </div>
+            </td>
+            <td width="auto" class="PageSides"></td>
+          </tr>
+        </table>
+      </div>
+
       <div class="Spacer10"></div>
+      <div class="Spacer10"></div>
+
     </div>
 
     <div id="FootBar"></div>
@@ -43,13 +74,22 @@
 </script>
 
 <script>
+  var divHeight = document.getElementById('PersonalPictures1').offsetHeight;
+</script>
+
+<script> 
+
     $(function(){
         $("#HeadBar").load("FixedPages/HeadBar.html"); 
         $("#FootBar").load("FixedPages/FootBar.html"); 
     });
 
+</script> 
+
+  <script>
     document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
     const textElement = document.querySelector('.AboutHeadline3-2');
+    const ImgElement = document.getElementById('PersonalPicture2');
 
     let opacity = 1; // Startwert der Opazität
     const duration = 100; // Dauer in Millisekunden
@@ -63,11 +103,14 @@
             opacity = 0; // Sicherheitshalber auf 0 setzen
         }
         textElement.style.opacity = opacity; // Anwenden der neuen Opazität
+        ImgElement.style.opacity = opacity;
     }, interval);
 });
 
 document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
     const textElement = document.querySelector('.AboutHeadline3-2');
+    const ImgElement = document.getElementById('PersonalPicture2');
+
     textElement.textContent = "Lisa Römer"; // Text zurücksetzen
 
     let opacity = 0; // Startwert der Opazität
@@ -82,11 +125,13 @@ document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout'
             opacity = 1; // Sicherheitshalber auf 0 setzen
         }
         textElement.style.opacity = opacity; // Anwenden der neuen Opazität
+        ImgElement.style.opacity = opacity;
     }, interval);
 });
 
 document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
     const textElement = document.querySelector('.AboutHeadline3-1');
+    const ImgElement = document.getElementById('PersonalPicture1');
 
     let opacity = 1; // Startwert der Opazität
     const duration = 200; // Dauer in Millisekunden
@@ -100,11 +145,13 @@ document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover
             opacity = 0; // Sicherheitshalber auf 0 setzen
         }
         textElement.style.opacity = opacity; // Anwenden der neuen Opazität
+        ImgElement.style.opacity = opacity;
     }, interval);
 });
 
 document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
     const textElement = document.querySelector('.AboutHeadline3-1');
+    const ImgElement = document.getElementById('PersonalPicture1');
     textElement.textContent = "Paul Dupont"; // Text zurücksetzen
 
     let opacity = 0; // Startwert der Opazität
@@ -119,6 +166,7 @@ document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout'
             opacity = 1; // Sicherheitshalber auf 0 setzen
         }
         textElement.style.opacity = opacity; // Anwenden der neuen Opazität
+        ImgElement.style.opacity = opacity;
     }, interval);
 });
 
@@ -152,5 +200,35 @@ document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover
     
     txtFile1.open("GET", "Texts/AboutGeneral.txt", true);
     txtFile1.send(null);
+
+    var txtFile2 = new XMLHttpRequest();
+    var allText2 ="EFJ";
+    
+    txtFile2.onreadystatechange = function () {
+        if (txtFile2.readyState === XMLHttpRequest.DONE && txtFile2.status == 200) {
+          allText2 = txtFile2.responseText;
+          allText2 = allText2.split("\n").join("<br>");
+        }
+
+        document.getElementById('PersonalPictures1').innerHTML = allText2;
+    }
+    
+    txtFile2.open("GET", "Texts/AboutLisa.txt", true);
+    txtFile2.send(null);
+
+    var txtFile3 = new XMLHttpRequest();
+    var allText3 ="EFJ";
+    
+    txtFile3.onreadystatechange = function () {
+        if (txtFile3.readyState === XMLHttpRequest.DONE && txtFile3.status == 200) {
+          allText3 = txtFile3.responseText;
+          allText3 = allText3.split("\n").join("<br>");
+        }
+
+        document.getElementById('PersonalPictures2').innerHTML = allText3;
+    }
+    
+    txtFile3.open("GET", "Texts/AboutPaul.txt", true);
+    txtFile3.send(null);
 
 </script> 

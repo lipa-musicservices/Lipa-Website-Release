@@ -143,7 +143,8 @@ body {
   color: white;
   background-color: rgb(4, 37, 37);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 300%;
+  font-size: 200%;
+  hyphens: auto;
   /* height: 70pt; */
   vertical-align: text-top;
   align-content: start;
