@@ -136,13 +136,14 @@ body {
   overflow-y: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  line-break: auto;
 }
 
 .BandTextHeadline1{
   color: white;
   background-color: rgb(4, 37, 37);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: auto;
+  font-size: 300%;
   /* height: 70pt; */
   vertical-align: text-top;
   align-content: start;
@@ -154,7 +155,7 @@ body {
   color: white;
   background-color: rgb(4, 37, 37);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: auto;
+  font-size: 300%;
   vertical-align: text-top;
   align-content: start;
   text-align: end;
