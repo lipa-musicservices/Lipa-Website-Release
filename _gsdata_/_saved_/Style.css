@@ -124,7 +124,7 @@ body {
   color: white;
   background-color: rgb(4, 37, 37);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: auto;
+  font-size: 13pt;
   height: auto;
   height: 250pt;
   margin-top: 0;
@@ -142,7 +142,7 @@ body {
   color: white;
   background-color: rgb(4, 37, 37);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: auto;
+  font-size: 50pt;
   /* height: 70pt; */
   vertical-align: text-top;
   align-content: start;
@@ -154,7 +154,8 @@ body {
   color: white;
   background-color: rgb(4, 37, 37);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: auto;
+  font-size: 50pt;
+  /* height: 70pt; */
   vertical-align: text-top;
   align-content: start;
   text-align: end;
@@ -341,16 +342,4 @@ th {
     vertical-align: top;
     text-align: start;
     line-height: 40pt;
-  }
-
-  .BandPicture{
-    position: relative;
-    align-items: center;
-    display: grid; /* Necessary for proper alignment inside th */
-    text-align: center; /* Center content inside the div itself */
-    align-content: start;
-    margin-left: 5%;
-    margin-top: 0;
-    margin-right: 5%;
-    width: 90%;
   }
