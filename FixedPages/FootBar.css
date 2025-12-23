@@ -1,0 +1,215 @@
+/* =========================
+   LiPa – FootBar.css (CLEAN / DARK)
+   For FixedPages/FootBar.html
+   ========================= */
+
+/* Footer Root */
+.footerSimple{
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-top: 56px;
+  padding: 26px 0 18px;
+
+  color: rgba(255,255,255,.90);
+  background: linear-gradient(180deg, rgba(22,24,28,.98), rgba(22,24,28,.90));
+  border-top: 1px solid rgba(255,255,255,.12);
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtle top highlight line */
+.footerSimple::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+}
+
+/* Subtle background glows (no logos, no watermarks) */
+.footerSimple::after{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(700px 240px at 18% 0%, rgba(124,92,255,.14), transparent 60%),
+    radial-gradient(700px 240px at 82% 0%, rgba(53,255,122,.10), transparent 60%);
+  pointer-events:none;
+  z-index: 0;
+  filter: blur(2px);
+}
+
+/* Absolutely kill ANY accidental footer watermark layers */
+.footerSimple *{
+  background-image: none !important;
+}
+.footerSimple img{
+  background: transparent !important;
+}
+
+/* Layout containers */
+.footerSimple .footerSimple__inner,
+.footerSimple .footerSimple__bottom{
+  position: relative;
+  z-index: 1;
+}
+
+/* Top row */
+.footerSimple__inner{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+/* Brand block */
+.footerSimple__brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  min-width: 240px;
+}
+
+/* Logo: small, never huge */
+.footerSimple__logo{
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display:block;
+
+  border-radius: 12px;
+  padding: 8px;
+
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 14px 34px rgba(0,0,0,.25);
+}
+
+/* Brand text */
+.footerSimple__brandText{
+  display:flex;
+  flex-direction:column;
+  line-height: 1.25;
+}
+
+.footerSimple__name{
+  font-weight: 900;
+  letter-spacing: -.01em;
+  color: rgba(255,255,255,.96);
+  font-size: 15px;
+}
+
+.footerSimple__meta{
+  margin-top: 4px;
+  color: rgba(255,255,255,.68);
+  font-size: 13px;
+}
+
+/* Links block */
+.footerSimple__links{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:flex-end;
+  gap: 10px 14px;
+  max-width: 520px;
+  padding-top: 6px;
+}
+
+.footerSimple__links a{
+  color: rgba(255,255,255,.72);
+  font-weight: 750;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  transition: background .15s ease, border-color .15s ease, transform .15s ease, color .15s ease;
+}
+
+.footerSimple__links a:hover{
+  color: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.16);
+  transform: translateY(-1px);
+}
+
+/* Bottom row */
+.footerSimple__bottom{
+  margin-top: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+}
+
+.footerSimple__copy{
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* Mini links */
+.footerSimple__mini{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  font-weight: 650;
+  flex-wrap: wrap;
+  justify-content:flex-end;
+}
+
+.footerSimple__mini a{
+  color: rgba(255,255,255,.70);
+  padding: 6px 8px;
+  border-radius: 10px;
+  transition: background .15s ease, color .15s ease;
+}
+
+.footerSimple__mini a:hover{
+  color: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.06);
+}
+
+.footerSimple__mini .dot{
+  opacity: .55;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .footerSimple__inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footerSimple__links{
+    justify-content:flex-start;
+    max-width: 100%;
+    padding-top: 2px;
+  }
+
+  .footerSimple__bottom{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Ultra small */
+@media (max-width: 420px){
+  .footerSimple__logo{
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+  }
+
+  .footerSimple__links a{
+    width: 100%;
+    justify-content:center;
+    text-align:center;
+  }
+}

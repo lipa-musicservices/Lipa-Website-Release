@@ -1,214 +1,247 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - About</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – Kontakt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <body>
-    <div id="HeadBar"></div>
-    <div class="Spacer10"></div>
-    <div class="Headline1">KONTAKT</div>
-    <div class="Headline2">Für Anfragen oder weitere Anliegen</div>
-    <div class="Spacer10"></div>
+<body class="page--contact">
+  <header id="HeadBar"></header>
 
-    <div class="PageBackground">
-      <table width="100%">
-        <tr>
-          <th width="20%" class="PageSides"></th>
-          <th width="30%" height="300pt">
-            <div class="ContactText">Mail: <a class="ContactLink" href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20FUNKgeraet" target=”_blank”>info@lipamusicservices.com</a></div>
-            <div class="ContactText">Telefon: <a class="ContactLink" href="tel:+4915225395955" target=”_blank”>+49 1522 5395955</a></div>
-            <div class="ContactText">Whatsapp: <a class="ContactLink" href="https://wa.me/4915225395955" target=”_blank”>+49 1522 5395955</a></div>
+  <main class="page">
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        <h1 class="pageHero__title">Kontakt</h1>
+        <p class="pageHero__subtitle">Für Anfragen, Buchungen &amp; alles, was sauber organisiert werden soll.</p>
+      </div>
+    </section>
 
-            <div Class="Spacer10"></div>
-            <div Class="Spacer10"></div>
+    <!-- CONTENT -->
+    <section class="section container">
+      <div class="contactGrid">
+        <!-- Left: Info -->
+        <section class="contactCard">
+          <div class="contactCard__head">
+            <div class="contactCard__title">Direkt erreichen</div>
+            <div class="contactCard__hint">Schnellster Weg: WhatsApp oder Mail</div>
+          </div>
 
-            <div class="BandLinks">
-              <!-- <a href="https://www.lipa.com/" target=”_blank”><img src="Resources/Logo Transparent hell.png" style="width:42px;height:42px;"></a>&nbsp;&nbsp; -->
-              <a href="https://www.instagram.com/lipa.musicservices/" target=”_blank”><img src="Resources/External/Instagram_Glyph_White.png" style="width:42px;height:42px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://www.facebook.com/profile.php?id=61568507923012" target=”_blank”><img src="Resources/External/Facebook_Logo_Primary.png" style="width:42px;height:42px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <!-- <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20Allgemein" target=”_blank”><img src="Resources/External/MailLogo.png" style="width:42px;height:42px;"></a> -->
+          <div class="contactList" aria-label="Kontaktmöglichkeiten">
+            <a class="contactItem" href="mailto:info@lipamusicservices.com?subject=LiPa%20Website%20–%20Anfrage" target="_blank" rel="noopener">
+              <span class="contactItem__icon" aria-hidden="true">✉️</span>
+              <span class="contactItem__main">
+                <span class="contactItem__label">E-Mail</span>
+                <span class="contactItem__value">info@lipamusicservices.com</span>
+              </span>
+              <span class="contactItem__go" aria-hidden="true">→</span>
+            </a>
+
+            <a class="contactItem" href="tel:+4915225395955" target="_blank" rel="noopener">
+              <span class="contactItem__icon" aria-hidden="true">📞</span>
+              <span class="contactItem__main">
+                <span class="contactItem__label">Telefon</span>
+                <span class="contactItem__value">+49 1522 5395955</span>
+              </span>
+              <span class="contactItem__go" aria-hidden="true">→</span>
+            </a>
+
+            <a class="contactItem" href="https://wa.me/4915225395955" target="_blank" rel="noopener">
+              <span class="contactItem__icon" aria-hidden="true">💬</span>
+              <span class="contactItem__main">
+                <span class="contactItem__label">WhatsApp</span>
+                <span class="contactItem__value">Chat öffnen</span>
+              </span>
+              <span class="contactItem__go" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="contactCard__divider" aria-hidden="true"></div>
+
+          <div class="contactSocial">
+            <div class="contactSocial__title">Social</div>
+            <div class="contactSocial__row" aria-label="Social Links">
+              <a class="socialBtn" href="https://www.instagram.com/lipa.musicservices/" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="Resources/External/Instagram_Glyph_White.png" alt="" />
+              </a>
+              <a class="socialBtn" href="https://www.facebook.com/profile.php?id=61568507923012" target="_blank" rel="noopener" aria-label="Facebook">
+                <img src="Resources/External/Facebook_Logo_Primary.png" alt="" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: Quick request -->
+        <aside class="contactCard contactCard--soft" aria-label="Schnellanfrage">
+          <div class="contactCard__head">
+            <div class="contactCard__title">Schnellanfrage</div>
+            <div class="contactCard__hint">Mit Betreff &amp; Info-Vorlage – damit wir direkt loslegen können</div>
+          </div>
+
+          <div class="contactQuick">
+            <label class="field">
+              <span class="field__label">Band / Projekt</span>
+              <input class="field__input" id="qBand" type="text" placeholder="z.B. FUNKgeræt" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Thema</span>
+              <select class="field__input" id="qTopic">
+                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                <option value="Booking">Booking</option>
+                <option value="Bandmanagement">Bandmanagement</option>
+                <option value="Design / Branding">Design / Branding</option>
+                <option value="Noten / Arrangements">Noten / Arrangements</option>
+                <option value="Event-Organisation">Event-Organisation</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Nachricht</span>
+              <textarea class="field__input field__textarea" id="qMsg" rows="5"
+                placeholder="Kurz: Was brauchst du? Wann? Wo? Budget/Scope (grob) – je mehr Kontext, desto schneller geht’s."></textarea>
+            </label>
+
+            <div class="contactQuick__actions">
+              <button class="btn btn--primary" type="button" id="mailBtn">E-Mail erstellen</button>
+              <a class="btn btn--ghost" href="https://wa.me/4915225395955" target="_blank" rel="noopener">WhatsApp</a>
             </div>
 
-          </th>
-          <th width="20%" class="PageSides"></th>
-        </tr>
-      </table>
-      
-      <div Class="Spacer10"></div>
-      <div Class="Spacer10"></div>
-    <div id="FootBar"></div>
-  </body>
+            <div class="contactQuick__note">
+              Tipp: Wenn’s dringend ist: WhatsApp. Wenn’s sauber dokumentiert sein soll: Mail.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
 
-</html>
+  <footer id="FootBar"></footer>
 
-<script
-
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-
-</script>
-
-<script>
-  var divHeight = document.getElementById('PersonalPictures1').offsetHeight;
-</script>
-
-<script> 
-
-    $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html");
+      $("#FootBar").load("FixedPages/FootBar.html");
     });
 
-</script> 
+    // Build mailto with template
+    document.getElementById("mailBtn").addEventListener("click", () => {
+      const band = (document.getElementById("qBand").value || "").trim();
+      const topic = document.getElementById("qTopic").value || "Anfrage";
+      const msg = (document.getElementById("qMsg").value || "").trim();
 
-  <script>
-    document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
-    const textElement = document.querySelector('.AboutHeadline3-2');
-    const ImgElement = document.getElementById('PersonalPicture2');
+      const subject = `LiPa Website – ${topic}${band ? " – " + band : ""}`;
+      const body =
+        `Hallo LiPa,%0D%0A%0D%0A` +
+        `ich habe eine Anfrage:%0D%0A` +
+        `Thema: ${encodeURIComponent(topic)}%0D%0A` +
+        (band ? `Band/Projekt: ${encodeURIComponent(band)}%0D%0A` : "") +
+        `%0D%0A` +
+        (msg ? `${encodeURIComponent(msg)}%0D%0A%0D%0A` : "") +
+        `Viele Grüße%0D%0A`;
 
-    let opacity = 1; // Startwert der Opazität
-    const duration = 100; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
+      const url = `mailto:info@lipamusicservices.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = url;
+    });
+  </script>
 
-    const fade = setInterval(() => {
-        opacity -= decrement; // Reduzieren der Opazität
-        if (opacity <= 0) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 0; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
-    const textElement = document.querySelector('.AboutHeadline3-2');
-    const ImgElement = document.getElementById('PersonalPicture2');
-
-    textElement.textContent = "Lisa Römer"; // Text zurücksetzen
-
-    let opacity = 0; // Startwert der Opazität
-    const duration = 100; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity += decrement; // Reduzieren der Opazität
-        if (opacity >= 1) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 1; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
-    const textElement = document.querySelector('.AboutHeadline3-1');
-    const ImgElement = document.getElementById('PersonalPicture1');
-
-    let opacity = 1; // Startwert der Opazität
-    const duration = 200; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity -= decrement; // Reduzieren der Opazität
-        if (opacity <= 0) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 0; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
-    const textElement = document.querySelector('.AboutHeadline3-1');
-    const ImgElement = document.getElementById('PersonalPicture1');
-    textElement.textContent = "Paul Dupont"; // Text zurücksetzen
-
-    let opacity = 0; // Startwert der Opazität
-    const duration = 200; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity += decrement; // Reduzieren der Opazität
-        if (opacity >= 1) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 1; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
-    document.querySelector('.PersonalPictureContainer1 .TextOverlay').style.opacity = '1'; // Overlay von Container 1 anzeigen
-  });
-
-  document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
-    document.querySelector('.PersonalPictureContainer1 .TextOverlay').style.opacity = '0'; // Overlay von Container 1 ausblenden
-  });
-
-  document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
-    document.querySelector('.PersonalPictureContainer2 .TextOverlay').style.opacity = '1'; // Overlay von Container 1 anzeigen
-  });
-
-  document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
-    document.querySelector('.PersonalPictureContainer2 .TextOverlay').style.opacity = '0'; // Overlay von Container 1 ausblenden
-  });
-
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
-
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
-        }
-
-        document.getElementById('AboutGeneralText').innerHTML = allText1;
+  <!-- Page-local styles (keine fremden CSS-Dateien nötig) -->
+  <style>
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:start;
     }
-    
-    txtFile1.open("GET", "Texts/AboutGeneral.txt", true);
-    txtFile1.send(null);
-
-    var txtFile2 = new XMLHttpRequest();
-    var allText2 ="EFJ";
-    
-    txtFile2.onreadystatechange = function () {
-        if (txtFile2.readyState === XMLHttpRequest.DONE && txtFile2.status == 200) {
-          allText2 = txtFile2.responseText;
-          allText2 = allText2.split("\n").join("<br>");
-        }
-
-        document.getElementById('PersonalPictures1').innerHTML = allText2;
+    @media (max-width: 900px){
+      .contactGrid{ grid-template-columns: 1fr; }
     }
-    
-    txtFile2.open("GET", "Texts/AboutLisa.txt", true);
-    txtFile2.send(null);
 
-    var txtFile3 = new XMLHttpRequest();
-    var allText3 ="EFJ";
-    
-    txtFile3.onreadystatechange = function () {
-        if (txtFile3.readyState === XMLHttpRequest.DONE && txtFile3.status == 200) {
-          allText3 = txtFile3.responseText;
-          allText3 = allText3.split("\n").join("<br>");
-        }
-
-        document.getElementById('PersonalPictures2').innerHTML = allText3;
+    .contactCard{
+      background: var(--card, #fff);
+      border: 1px solid var(--border, rgba(10,16,26,.12));
+      border-radius: var(--radius, 18px);
+      box-shadow: var(--shadow2, 0 10px 26px rgba(10,16,26,.08));
+      padding: 18px;
     }
-    
-    txtFile3.open("GET", "Texts/AboutPaul.txt", true);
-    txtFile3.send(null);
+    .contactCard--soft{
+      background: linear-gradient(180deg, rgba(53,255,122,.10), rgba(255,255,255,.0));
+    }
+    .contactCard__head{ display:flex; flex-direction:column; gap:6px; margin-bottom: 14px; }
+    .contactCard__title{ font-weight: 800; font-size: 18px; color: var(--text, #0e1116); }
+    .contactCard__hint{ color: var(--muted, rgba(14,17,22,.68)); font-size: 13px; }
 
-</script> 
+    .contactList{ display:flex; flex-direction:column; gap: 10px; }
+    .contactItem{
+      display:flex; align-items:center; gap: 12px;
+      text-decoration:none;
+      border:1px solid var(--border, rgba(10,16,26,.12));
+      border-radius: 14px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,.75);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      color: var(--text, #0e1116);
+    }
+    .contactItem:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(10,16,26,.10);
+      border-color: rgba(53,255,122,.55);
+    }
+    .contactItem__icon{ width: 28px; height: 28px; display:grid; place-items:center; font-size: 18px; }
+    .contactItem__main{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .contactItem__label{ font-size: 12px; color: var(--muted, rgba(14,17,22,.68)); }
+    .contactItem__value{ font-weight: 700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .contactItem__go{ margin-left:auto; opacity:.7; }
+
+    .contactCard__divider{
+      height:1px; background: var(--border, rgba(10,16,26,.12));
+      margin: 14px 0;
+    }
+
+    .contactSocial__title{ font-weight: 800; font-size: 14px; margin-bottom: 10px; }
+    .contactSocial__row{ display:flex; gap: 10px; }
+    .socialBtn{
+      width: 44px; height: 44px;
+      display:grid; place-items:center;
+      border-radius: 14px;
+      border: 1px solid var(--border, rgba(10,16,26,.12));
+      background: rgba(10,16,26,.88);
+      box-shadow: 0 10px 18px rgba(10,16,26,.12);
+      transition: transform .12s ease;
+      text-decoration:none;
+    }
+    .socialBtn:hover{ transform: translateY(-1px); }
+    .socialBtn img{ width: 22px; height: 22px; object-fit: contain; }
+
+    .contactQuick{ display:flex; flex-direction:column; gap: 12px; }
+    .field{ display:flex; flex-direction:column; gap:6px; }
+    .field__label{ font-size: 12px; color: var(--muted, rgba(14,17,22,.68)); font-weight: 700; }
+    .field__input{
+      width:100%;
+      border-radius: 14px;
+      border:1px solid var(--border, rgba(10,16,26,.12));
+      padding: 11px 12px;
+      font: inherit;
+      color: var(--text, #0e1116);
+      background: rgba(255,255,255,.85);
+      outline: none;
+    }
+    .field__input:focus{
+      border-color: rgba(53,255,122,.65);
+      box-shadow: 0 0 0 4px rgba(53,255,122,.18);
+    }
+    .field__textarea{ resize: vertical; min-height: 120px; }
+
+    .contactQuick__actions{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .contactQuick__note{
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted, rgba(14,17,22,.68));
+    }
+  </style>
+</body>
+</html>

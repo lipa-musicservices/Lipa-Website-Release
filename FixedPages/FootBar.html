@@ -1,48 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FootBar</title>
-  </head>
-  <body>
-    <footer>
-      <div class="FootBar">
-        <table class="FooterTable" width="100%">
-          <tr>
-            <th width="10%"></th>
-            <th width="20%"><img class="FooterLogo" src="/Resources/Logo Transparent hell.png"></img></th>
-            <th width="20%"><div class="FooterText">LiPa Music Services</br>Albert-Schweitzer-Str. 65</br>67655 Kaiserslautern</div></th>
-            <th width="20%">
-              <div class="FooterInternalLinksDiv">
-                <a class="FooterInternalLink" href="index.html">Home</a></br>
-                <a class="FooterInternalLink" href="about.html">About</a></br>
-                <a class="FooterInternalLink" href="bands.html">Bands</a></br>
-                <a class="FooterInternalLink" href="events.html">Events</a></br>
-                <!-- <a class="FooterInternalLink" href="partner.html">Partner</a></br> -->
-                <a class="FooterInternalLink" href="Impressum.html">Impressum</a></br>
-                <a class="FooterInternalLink" href="Datenschutz.html">Datenschutz</a></br>
-              </div>
-            </th>
-            <th width="10%"></th>
-          </tr>
-          <tr>
-            <th width="10%"></th>
-            <th width="80%" colspan="3">
-              <div class="CopyrightNoticeFooter">
-                <p>Copyright &copy;&nbsp;</p>
-                <p id="VARCurYear"></p>
-                <p>&nbsp;- LiPa Music Services</p>
-              </div>
-            </th>
-            <th width="10%"></th>
-          </tr>
-        </table>
+<link rel="stylesheet" href="FixedPages/FootBar.css">
+
+<!-- FixedPages/FootBar.html -->
+<footer class="footerSimple" role="contentinfo">
+  <div class="container footerSimple__inner">
+    <div class="footerSimple__brand">
+      <img class="footerSimple__logo" src="Resources/Logo Transparent hell.png" alt="LiPa Music Services Logo" />
+      <div class="footerSimple__brandText">
+        <div class="footerSimple__name">LiPa Music Services</div>
+        <div class="footerSimple__meta">
+          Albert-Schweitzer-Str. 65 · 67655 Kaiserslautern
+        </div>
       </div>
-    </footer>
-  </body>
-</html>
+    </div>
+
+    <nav class="footerSimple__links" aria-label="Footer Navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="bands.html">Bands</a>
+      <a href="events.html">Events</a>
+      <a href="Impressum.html">Impressum</a>
+      <a href="Datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+
+  <div class="container footerSimple__bottom">
+    <div class="footerSimple__copy">© <span id="VARCurYear"></span> LiPa Music Services</div>
+    <div class="footerSimple__mini">
+      <a href="Impressum.html">Impressum</a>
+      <span class="dot" aria-hidden="true">•</span>
+      <a href="Datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-  document.getElementById("VARCurYear").innerHTML = new Date().getFullYear();
+  (function () {
+    const el = document.getElementById("VARCurYear");
+    if (el) el.textContent = new Date().getFullYear();
+  })();
 </script>

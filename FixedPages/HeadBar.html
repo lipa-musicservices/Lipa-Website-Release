@@ -1,34 +1,141 @@
-<!-- FixedPages/HeadBar.html -->
+<link rel="stylesheet" href="FixedPages/HeadBar.css">
+
+
 <div class="topbar">
   <div class="container topbar__inner">
-    <a class="topbar__brand" href="index.html" aria-label="LiPa Music Services – Startseite">
-  <img src="Resources/Logo Transparent hell.png" alt="LiPa Music Services Logo" class="topbar__logo" />
-  <span class="topbar__brandText">
-    <span class="topbar__wordmark">LiPa</span>
-    <span class="topbar__sub">Music Services</span>
-  </span>
-</a>
+    <!-- Brand -->
+    <a class="topbar__brand" href="index.html" aria-label="LiPa Home">
+      <img class="topbar__logo" src="Resources/Logo Transparent hell.png" alt="LiPa Logo" />
+      <div class="topbar__brandText">
+        <div class="topbar__wordmark">LiPa</div>
+        <div class="topbar__sub">Music Services</div>
+      </div>
+    </a>
 
+    <!-- Desktop Nav -->
+    <nav class="topbar__nav" aria-label="Hauptnavigation">
+      <a class="topbar__link" href="index.html">Home</a>
 
-    <nav class="topbar__nav" data-nav>
-      <a href="services.html" class="topbar__link">Services</a>
-      <a href="projects.html" class="topbar__link">Referenzen</a>
-      <a href="about.html" class="topbar__link">Über uns</a>
-      <a href="contact.html" class="topbar__link topbar__link--cta">Kontakt</a>
+      <!-- Services Dropdown (Desktop hover) -->
+      <div class="navDrop">
+        <a class="topbar__link navDrop__trigger" href="Services.html" aria-haspopup="true">
+          Services <span class="navDrop__chev" aria-hidden="true">▾</span>
+        </a>
+
+        <div class="navDrop__menu" role="menu" aria-label="Services Untermenü">
+          <a class="navDrop__item navDrop__item--all" href="Services.html" role="menuitem">Alle Services →</a>
+          <div class="navDrop__sep"></div>
+
+          <a class="navDrop__item" href="Services-WebandHosting.html" role="menuitem">Webentwicklung &amp; Hosting</a>
+          <a class="navDrop__item" href="Services-MarketingandPromotion.html" role="menuitem">Marketing &amp; Promotion</a>
+          <a class="navDrop__item" href="Services-DesignandMedia.html" role="menuitem">Design &amp; Mediengestaltung</a>
+          <a class="navDrop__item" href="Services-ManagementandOrganization.html" role="menuitem">Management &amp; Organisation</a>
+          <a class="navDrop__item" href="Services-NotesandArrangements.html" role="menuitem">Noten &amp; Arrangements</a>
+          <a class="navDrop__item navDrop__item--soft" href="Services-ProductsandTools.html" role="menuitem">Produkte &amp; Tools</a>
+        </div>
+      </div>
+
+      <a class="topbar__link" href="about.html">About</a>
+      <a class="topbar__link" href="bands.html">Bands</a>
+      <a class="topbar__link" href="events.html">Events</a>
+
+      <a class="topbar__link topbar__link--cta" href="contact.html">Kontakt</a>
     </nav>
 
-    <button class="topbar__burger" type="button" aria-label="Menü öffnen" aria-expanded="false" data-burger>
-      <span></span><span></span><span></span>
+    <!-- Mobile Burger -->
+    <button class="topbar__burger" aria-label="Menü öffnen" aria-expanded="false" data-burger>
+      <span></span><span></span>
     </button>
   </div>
 
   <!-- Mobile Drawer -->
-  <div class="topbar__drawer" data-drawer>
+  <div class="topbar__drawer">
     <div class="topbar__drawerInner">
-      <a href="services.html" class="topbar__mLink">Services</a>
-      <a href="projects.html" class="topbar__mLink">Referenzen</a>
-      <a href="about.html" class="topbar__mLink">Über uns</a>
-      <a href="contact.html" class="topbar__mLink topbar__mLink--cta">Kontakt</a>
+      <a class="topbar__mLink" href="index.html">Home</a>
+
+      <!-- Services row (link + toggle button) -->
+<div class="mAcc" data-macc>
+  <div class="mAcc__row">
+    <a class="topbar__mLink mAcc__link" href="Services.html">Services</a>
+
+    <button class="mAcc__toggle" type="button"
+        aria-label="Services Untermenü öffnen"
+        aria-expanded="false"
+        data-macc-toggle
+        onclick="event.preventDefault(); event.stopPropagation();
+                 const acc=this.closest('.mAcc');
+                 const open=acc.classList.toggle('is-open');
+                 this.setAttribute('aria-expanded', String(open));">
+  <span class="mAcc__chev" aria-hidden="true">▾</span>
+</button>
+
+  </div>
+
+  <div class="mSub" data-macc-panel>
+    <a class="topbar__mSublink" href="Services-WebandHosting.html">Webentwicklung &amp; Hosting</a>
+    <a class="topbar__mSublink" href="Services-MarketingandPromotion.html">Marketing &amp; Promotion</a>
+    <a class="topbar__mSublink" href="Services-DesignandMedia.html">Design &amp; Mediengestaltung</a>
+    <a class="topbar__mSublink" href="Services-ManagementandOrganization.html">Management &amp; Organisation</a>
+    <a class="topbar__mSublink" href="Services-NotesandArrangements.html">Noten &amp; Arrangements</a>
+    <a class="topbar__mSublink" href="Services-ProductsandTools.html">Produkte &amp; Tools</a>
+  </div>
+</div>
+
+
+      <a class="topbar__mLink" href="about.html">About</a>
+      <a class="topbar__mLink" href="bands.html">Bands</a>
+      <a class="topbar__mLink" href="events.html">Events</a>
+      <a class="topbar__mLink topbar__mLink--cta" href="contact.html">Kontakt</a>
     </div>
   </div>
 </div>
+<script>
+(() => {
+  const getTopbar = (el) => el.closest?.(".topbar");
+
+  const closeAll = (topbar) => {
+    topbar.classList.remove("is-open");
+    const burger = topbar.querySelector("[data-burger]");
+    if (burger) burger.setAttribute("aria-expanded","false");
+
+    const mAcc = topbar.querySelector("[data-macc]");
+    const toggle = topbar.querySelector("[data-macc-toggle]");
+    if (mAcc) mAcc.classList.remove("is-open");
+    if (toggle) toggle.setAttribute("aria-expanded","false");
+  };
+
+  // Klicks zentral abfangen (auch wenn Topbar später rein-injected wird)
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+
+    // Burger
+    const burger = t.closest?.("[data-burger]");
+    if (burger) {
+      const topbar = getTopbar(burger);
+      if (!topbar) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      const open = topbar.classList.toggle("is-open");
+      burger.setAttribute("aria-expanded", String(open));
+
+      // wenn Drawer zu -> Accordion auch zu
+      if (!open) {
+        const mAcc = topbar.querySelector("[data-macc]");
+        const toggle = topbar.querySelector("[data-macc-toggle]");
+        if (mAcc) mAcc.classList.remove("is-open");
+        if (toggle) toggle.setAttribute("aria-expanded","false");
+      }
+      return;
+    }
+
+    // Services Toggle
+    const mToggle = t.closest?.("[data-macc-toggle]");
+    if (mToggle) {
+      const topbar = getTopbar(mToggle);
+      if (!topbar) return;
+      e.preventDefault();
+    }
+  }
+)})
+</script>

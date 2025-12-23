@@ -1,248 +1,254 @@
 <!DOCTYPE html>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - Bands</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – Bands</title>
 
-  <body>
-    <div id="HeadBar"></div>
-    <div class="Spacer10"></div>
-    <div class="Headline1">UNSERE BANDS</div>
-    <div class="Headline2">Qualität und Vielfalt - Die Bands mit denen wir zusammenarbeiten</div>
+  <!-- Global site styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <div class="Spacer10"></div>
+<body class="page--bands">
+  <!-- Loaded via jQuery -->
+  <header id="HeadBar"></header>
 
-    <div class="PageBackground" width="100%">
-      <table>
-        <tr width="100%">
-          <th width="10%" class="PageSides"></th>
-          <th width="80%" class="BandsTable"><div class="StandardText1" id="BandTextGeneral"></div></th>
-          <th width="10%" class="PageSides"></th>
-        </tr>
-      </table>
+  <main class="page">
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        <h1 class="pageHero__title">Unsere Bands</h1>
+        <p class="pageHero__subtitle">Qualität und Vielfalt – die Bands, mit denen wir zusammenarbeiten.</p>
+      </div>
+    </section>
 
-      <div class="Spacer10"></div>
+    <!-- CONTENT -->
+    <section class="section container">
+      <!-- Intro block -->
+      <section class="bandIntro" aria-label="Kurz gesagt">
+        <div class="bandIntro__kicker">Kurz gesagt</div>
+        <div class="bandIntro__text" id="BandTextGeneral">
+          <!-- optional: loaded from Texts/BandTextGeneral.txt -->
+        </div>
+      </section>
 
-      <table>
-        <tr width="100%">
-          <th width="10%" class="PageSides"></th>
-          <th width="40%" class="BandTableImg">
-            <div class="BandPicture" width="100%">
-                <img width="100%" src="Resources/BandPictures/BandImg1.png">
+      <!-- Bands list -->
+      <section class="bandList" aria-label="Bands">
+        <!-- ========== FUNKgeræt ========== -->
+        <article class="bandCard" data-band="funkgeraet">
+          <div class="bandCard__media">
+            <img src="Resources/BandPictures/BandImg1.png" alt="FUNKgeræt" loading="lazy" />
+          </div>
+
+          <div class="bandCard__content">
+            <div class="bandCard__top">
+              <h2 class="bandCard__title">FUNKgeræt</h2>
+              <div class="bandCard__tag">FUNK / GROOVE</div>
             </div>
-          </th>
-          <th width="40%" class="BandTableText">
-            <div class="BandTextHeadline1">FUNKgeræt</div>
-            <div class="BandText1" id="BandText1"></div>
-            <div class="BandLinks">
-              <a href="https://www.funkgeraet.info/" target=”_blank”><img src="Resources/BandPictures/BandLogo1.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;
-              <a href="https://www.instagram.com/funk_geraet/" target=”_blank”><img src="Resources/External/Instagram_Glyph_White.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://www.facebook.com/people/FUNKger%C3%A6t/61555508279087/" target=”_blank”><img src="Resources/External/Facebook_Logo_Primary.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20FUNKgeraet" target=”_blank”><img src="Resources/External/MailLogo.png" style="width:10%;height:10%;"></a>
-            </div>
-            <div class="Spacer10"></div>
-          </th>
-          <th width="10%" class="PageSides"></th>
-        </tr>
-        <tr width="100%">
-          <th width="10%" class="PageSides"></th>
-          <th width="40%" class="BandTableImg">
-            <div class="BandPicture" width="100%">
-                <img width="100%" src="Resources/BandPictures/BandImg2.png">
-            </div>
-          </th>
-          <th width="40%" class="BandTableText">
-            <div class="BandTextHeadline1">JAZZIFY</div>
-            <div class="BandText1" id="BandText2"></div>
-            <div class="BandLinks">
-              <a href="https://www.finnspaude.com/jazzify" target=”_blank”><img src="Resources/BandPictures/BandLogo2.avif" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://www.instagram.com/jazzify_project/" target=”_blank”><img src="Resources/External/Instagram_Glyph_White.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <!-- <a href="https://www.facebook.com/people/FUNKger%C3%A6t/61555508279087/" target=”_blank”><img src="Resources/External/Facebook_Logo_Primary.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
-              <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20JAZZIFY" target=”_blank”><img src="Resources/External/MailLogo.png" style="width:10%;height:10%;"></a>
-            </div>
-            <div class="Spacer10"></div>
-          </th>
-          <th width="10%" class="PageSides"></th>
-        </tr>
-        <tr width="100%">
-          <th width="10%" class="PageSides"></th>
-          <th width="40%" class="BandTableImg">
-            <div class="BandPicture" width="100%">
-                <img width="100%" src="Resources/BandPictures/BandImg3.png">
-            </div>
-          </th>
-          <th width="40%" class="BandTableText">
-            <div class="BandTextHeadline1">Finn Spaude Pentagon Bigband</div>
-            <div class="BandText1" id="BandText3"></div>
-            <div class="BandLinks">
-              <a href="https://www.finnspaude.com/bigband" target=”_blank”><img src="Resources/BandPictures/BandLogo3.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;
-              <a href="https://www.instagram.com/pentagon_bigband/" target=”_blank”><img src="Resources/External/Instagram_Glyph_White.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <!-- <a href="https://www.facebook.com/people/FUNKger%C3%A6t/61555508279087/" target=”_blank”><img src="Resources/External/Facebook_Logo_Primary.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
-              <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20Pentagon" target=”_blank”><img src="Resources/External/MailLogo.png" style="width:10%;height:10%;"></a>
-            </div>
-            <div class="Spacer10"></div>
-          </th>
-          <th width="10%" class="PageSides"></th>
-        </tr>
-        <tr width="100%">
-          <th width="10%" class="PageSides"></th>
-          <th width="40%" class="BandTableImg">
-            <div class="BandPicture">
-                <img width="100%" src="Resources/BandPictures/BandImg4.png">
-            </div>
-          </th>
-          <th width="40%" class="BandTableText">
-            <div class="BandTextHeadline1">HomeTone Eventband</div>
-            <div class="BandText1" id="BandText4"></div>
-            <div class="BandLinks">
-              <a href="https://www.finnspaude.com/hometone-eventband" target=”_blank”><img src="Resources/BandPictures/BandLogo4.jpg" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://www.instagram.com/_home_tone_music_/" target=”_blank”><img src="Resources/External/Instagram_Glyph_White.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <!-- <a href="https://www.facebook.com/people/FUNKger%C3%A6t/61555508279087/" target=”_blank”><img src="Resources/External/Facebook_Logo_Primary.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp; -->
-              <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20HomeTone" target=”_blank”><img src="Resources/External/MailLogo.png" style="width:10%;height:10%;"></a>
-            </div>
-            <div class="Spacer10"></div>
-          </th>
 
-          <th width="10%" class="PageSides"></th>
-        </tr>
-        <tr width="100%">
-          <th width="10%" class="PageSides"></th>
-          <th width="40%" class="BandTableImg">
-            <div class="BandPicture">
-                <img width="100%" src="Resources/BandPictures/BandImg5.png">
+            <p class="bandCard__text" id="BandText1"></p>
+
+            <!-- Bottom-right badge + socials -->
+            <div class="bandCard__linksWrap">
+              <div class="bandCard__serviceTag">Vollständiges Management</div>
+
+              <div class="bandCard__links" aria-label="FUNKgeræt Links">
+                <a href="https://www.funkgeraet.info/" target="_blank" rel="noopener">
+                  <img src="Resources/BandPictures/BandLogo1.png" alt="Website" />
+                </a>
+                <a href="https://www.instagram.com/funk_geraet/" target="_blank" rel="noopener">
+                  <img src="Resources/External/Instagram_Glyph_White.png" alt="Instagram" />
+                </a>
+                <a href="https://www.facebook.com/people/FUNKger%C3%A6t/61555508279087/" target="_blank" rel="noopener">
+                  <img src="Resources/External/Facebook_Logo_Primary.png" alt="Facebook" />
+                </a>
+                <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20FUNKgeraet">
+                  <img src="Resources/External/MailLogo.png" alt="E-Mail" />
+                </a>
+              </div>
             </div>
-          </th>
-          <th width="40%" class="BandTableText">
-            <div class="BandTextHeadline1">Blue Groove Quartet</div>
-            <div class="BandText1" id="BandText5"></div>
-            <div class="BandLinks">
-              <!-- <a href="https://bluegroovequartet.com" target=”_blank”><img src="Resources/BandPictures/BandLogo3.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp; -->
-              <a href="https://www.instagram.com/bluegroovequartet/" target=”_blank”><img src="Resources/External/Instagram_Glyph_White.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="https://www.facebook.com/BlueGrooveQuartet/?locale=fa_IR" target=”_blank”><img src="Resources/External/Facebook_Logo_Primary.png" style="width:10%;height:10%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20Pentagon" target=”_blank”><img src="Resources/External/MailLogo.png" style="width:10%;height:10%;"></a>
+          </div>
+        </article>
+<!-- ========== Blue Groove Quartet ========== -->
+        <article class="bandCard" data-band="bluegroove">
+          <div class="bandCard__media">
+            <img src="Resources/BandPictures/BandImg5.png" alt="Blue Groove Quartet" loading="lazy" />
+          </div>
+
+          <div class="bandCard__content">
+            <div class="bandCard__top">
+              <h2 class="bandCard__title">Blue Groove Quartet</h2>
+              <div class="bandCard__tag">JAZZ / GROOVE</div>
             </div>
-            <div class="Spacer10"></div>
-          </th>
-          <th width="10%" class="PageSides"></th>
-        </tr>
-      </table>
-      <div class="Spacer10"></div>
-      <div class="Spacer10"></div>
-    </div>
 
-    <div id="FootBar"></div>
-  </body>
+            <p class="bandCard__text" id="BandText5"></p>
 
-</html>
+            <div class="bandCard__linksWrap">
+              <div class="bandCard__serviceTag">Vollständiges Management</div>
 
-<script
+              <div class="bandCard__links" aria-label="Blue Groove Links">
+                <a href="https://www.instagram.com/bluegroovequartet/" target="_blank" rel="noopener">
+                  <img src="Resources/External/Instagram_Glyph_White.png" alt="Instagram" />
+                </a>
+                <a href="https://www.facebook.com/BlueGrooveQuartet/?locale=fa_IR" target="_blank" rel="noopener">
+                  <img src="Resources/External/Facebook_Logo_Primary.png" alt="Facebook" />
+                </a>
+                <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20BlueGroove">
+                  <img src="Resources/External/MailLogo.png" alt="E-Mail" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- ========== JAZZIFY ========== -->
+        <article class="bandCard" data-band="jazzify">
+          <div class="bandCard__media">
+            <img src="Resources/BandPictures/BandImg2.png" alt="JAZZIFY" loading="lazy" />
+          </div>
 
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
+          <div class="bandCard__content">
+            <div class="bandCard__top">
+              <h2 class="bandCard__title">JAZZIFY</h2>
+              <div class="bandCard__tag">JAZZ / POP</div>
+            </div>
 
-</script>
+            <p class="bandCard__text" id="BandText2"></p>
 
-<script>
-  $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
+            <div class="bandCard__linksWrap">
+              <div class="bandCard__serviceTag">Booking Support</div>
+
+              <div class="bandCard__links" aria-label="JAZZIFY Links">
+                <a href="https://www.finnspaude.com/jazzify" target="_blank" rel="noopener">
+                  <img src="Resources/BandPictures/BandLogo2.avif" alt="Website" />
+                </a>
+                <a href="https://www.instagram.com/jazzify_project/" target="_blank" rel="noopener">
+                  <img src="Resources/External/Instagram_Glyph_White.png" alt="Instagram" />
+                </a>
+                <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20JAZZIFY">
+                  <img src="Resources/External/MailLogo.png" alt="E-Mail" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ========== Pentagon Bigband ========== -->
+        <article class="bandCard" data-band="pentagon">
+          <div class="bandCard__media">
+            <img src="Resources/BandPictures/BandImg3.png" alt="Finn Spaude Pentagon Bigband" loading="lazy" />
+          </div>
+
+          <div class="bandCard__content">
+            <div class="bandCard__top">
+              <h2 class="bandCard__title">Finn Spaude Pentagon Bigband</h2>
+              <div class="bandCard__tag">BIGBAND</div>
+            </div>
+
+            <p class="bandCard__text" id="BandText3"></p>
+
+            <div class="bandCard__linksWrap">
+              <div class="bandCard__serviceTag">Booking Support</div>
+
+              <div class="bandCard__links" aria-label="Pentagon Links">
+                <a href="https://www.finnspaude.com/bigband" target="_blank" rel="noopener">
+                  <img src="Resources/BandPictures/BandLogo3.png" alt="Website" />
+                </a>
+                <a href="https://www.instagram.com/pentagon_bigband/" target="_blank" rel="noopener">
+                  <img src="Resources/External/Instagram_Glyph_White.png" alt="Instagram" />
+                </a>
+                <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20Pentagon">
+                  <img src="Resources/External/MailLogo.png" alt="E-Mail" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ========== HomeTone Eventband ========== -->
+        <article class="bandCard" data-band="hometone">
+          <div class="bandCard__media">
+            <img src="Resources/BandPictures/BandImg4.png" alt="HomeTone Eventband" loading="lazy" />
+          </div>
+
+          <div class="bandCard__content">
+            <div class="bandCard__top">
+              <h2 class="bandCard__title">HomeTone Eventband</h2>
+              <div class="bandCard__tag">EVENT / PARTY</div>
+            </div>
+
+            <p class="bandCard__text" id="BandText4"></p>
+
+            <div class="bandCard__linksWrap">
+              <div class="bandCard__serviceTag">Booking Support</div>
+
+              <div class="bandCard__links" aria-label="HomeTone Links">
+                <a href="https://www.finnspaude.com/hometone-eventband" target="_blank" rel="noopener">
+                  <img src="Resources/BandPictures/BandLogo4.jpg" alt="Website" />
+                </a>
+                <a href="https://www.instagram.com/_home_tone_music_/" target="_blank" rel="noopener">
+                  <img src="Resources/External/Instagram_Glyph_White.png" alt="Instagram" />
+                </a>
+                <a href="mailto:info@lipamusicservices.com?subject=LiPa-Website-Anfrage%20-%20HomeTone">
+                  <img src="Resources/External/MailLogo.png" alt="E-Mail" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        
+      </section>
+    </section>
+  </main>
+
+  <!-- Loaded via jQuery -->
+  <footer id="FootBar"></footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Shared parts
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
+
+      $("#FootBar").load("FixedPages/FootBar.html");
     });
 
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
-
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
-        }
-
-        document.getElementById('BandTextGeneral').innerHTML = allText1;
+    // Load band texts (optional)
+    function loadTxt(url, elId) {
+      fetch(url)
+        .then(r => (r.ok ? r.text() : ""))
+        .then(t => {
+          const el = document.getElementById(elId);
+          if (!el) return;
+          el.innerHTML = (t || "").split("\n").join("<br>");
+        })
+        .catch(() => {});
     }
-    
-    txtFile1.open("GET", "Texts/BandTextGeneral.txt", true);
-    txtFile1.send(null);
 
-    var txtFile2 = new XMLHttpRequest();
-    var allText2 = "";
-
-    txtFile2.onreadystatechange = function () {
-        if (txtFile2.readyState === XMLHttpRequest.DONE && txtFile2.status == 200) {
-          allText2 = txtFile2.responseText;
-          allText2 = allText2.split("\n").join("<br>");
-        }
-
-        document.getElementById('BandText1').innerHTML = allText2;
-    }
-    
-    txtFile2.open("GET", "Texts/BandText1.txt", true);
-    txtFile2.send(null);
-
-    var txtFile3 = new XMLHttpRequest();
-    var allText3 = "";
-
-    txtFile3.onreadystatechange = function () {
-        if (txtFile3.readyState === XMLHttpRequest.DONE && txtFile3.status == 200) {
-          allText3 = txtFile3.responseText;
-          allText3 = allText3.split("\n").join("<br>");
-        }
-
-        document.getElementById('BandText2').innerHTML = allText3;
-    }
-    
-    txtFile3.open("GET", "Texts/BandText2.txt", true);
-    txtFile3.send(null);
-
-    var txtFile4 = new XMLHttpRequest();
-    var allText4 = "";
-
-    txtFile4.onreadystatechange = function () {
-        if (txtFile4.readyState === XMLHttpRequest.DONE && txtFile4.status == 200) {
-          allText4 = txtFile4.responseText;
-          allText4 = allText4.split("\n").join("<br>");
-        }
-
-        document.getElementById('BandText3').innerHTML = allText4;
-    }
-    
-    txtFile4.open("GET", "Texts/BandText3.txt", true);
-    txtFile4.send(null);
-
-    var txtFile5 = new XMLHttpRequest();
-    var allText5 = "";
-
-    txtFile5.onreadystatechange = function () {
-        if (txtFile5.readyState === XMLHttpRequest.DONE && txtFile5.status == 200) {
-          allText5 = txtFile5.responseText;
-          allText5 = allText5.split("\n").join("<br>");
-        }
-
-        document.getElementById('BandText4').innerHTML = allText5;
-    }
-    
-    txtFile5.open("GET", "Texts/BandText4.txt", true);
-    txtFile5.send(null);
-
-    var txtFile6 = new XMLHttpRequest();
-    var allText6 = "";
-
-    txtFile6.onreadystatechange = function () {
-        if (txtFile6.readyState === XMLHttpRequest.DONE && txtFile6.status == 200) {
-          allText6 = txtFile6.responseText;
-          allText6 = allText6.split("\n").join("<br>");
-        }
-
-        document.getElementById('BandText5').innerHTML = allText6;
-    }
-    
-    txtFile6.open("GET", "Texts/BandText5.txt", true);
-    txtFile6.send(null);
-
-</script> 
+    loadTxt("Texts/BandTextGeneral.txt", "BandTextGeneral");
+    loadTxt("Texts/BandText1.txt", "BandText1");
+    loadTxt("Texts/BandText2.txt", "BandText2");
+    loadTxt("Texts/BandText3.txt", "BandText3");
+    loadTxt("Texts/BandText4.txt", "BandText4");
+    loadTxt("Texts/BandText5.txt", "BandText5");
+  </script>
+</body>
+</html>

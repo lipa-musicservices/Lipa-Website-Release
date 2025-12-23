@@ -1,234 +1,200 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - About</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – About</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <body width="100%">
-    <div id="HeadBar"></div>
-    <div class="Spacer10"></div>
-    <div class="Headline1">ÜBER UNS</div>
-    <div class="Headline2">Wir sind LiPa Music Services!</div>
-    <div class="Spacer10"></div>
+<body class="page--about">
 
-    <div class="PageBackground" width="100%">
-      <table>
-        <tr>
-          <th class="PageSides"></th>
-          <th width=auto height="300pt"><div id="AboutGeneralText" class="StandardText1"></div></th>
-          <th class="PageSides"></th>
-        </tr>
-      </table>
-      <div class="Spacer10"></div>
-      <div class="Headline2">Das Team:</div>
-      <div class="AboutTableDiv" width="100%">
-        <table width="100%">
-          <tr width="100%">
-            <td width="auto" class="PageSides"></td>
-            <td width="10%"><div class="AboutHeadline3-1">Paul Dupont</div></td>
-            <td width="10%"><div class="AboutHeadline3-2">Lisa Römer</div></td>
-            <td width="auto" class="PageSides"></td>
-          </tr>
-          <tr width="100%">
-            <td width="10%" class="PageSides"></td>
-            <td width="40%" class="AboutTD">
-              <div class="PersonalPictureContainer1">
-                <img id="PersonalPicture1" class="PersonalPicture" src="Resources/PersonalPictures/Folie1.PNG">
-                <div width="100%" class="TextOverlay">
-                  <div class="PersonalPictureOverlayText" id="PersonalPictures1"></div>
-                </div>
-              </div>
-            </td>
-            <td width="40%" class="AboutTD">
-              <div class="PersonalPictureContainer2">
-                <img id="PersonalPicture2" class="PersonalPicture" src="Resources/PersonalPictures/Folie2.PNG">
-                <div width="100%" class="TextOverlay">
-                  <div class="PersonalPictureOverlayText" id="PersonalPictures2"></div>
-                </div>
-              </div>
-            </td>
-            <td width="10%" class="PageSides"></td>
-          </tr>
-        </table>
+  <header id="HeadBar"></header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        <h1 class="pageHero__title">Über uns</h1>
+        <p class="pageHero__subtitle">Wir sind LiPa Music Services.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section container about">
+      <div class="about__grid">
+        <!-- Left: Text -->
+        <article class="about__text">
+          <h2 class="section__title">Wer wir sind</h2>
+
+          <div id="AboutGeneralText" class="about__copy">
+            <!-- loaded from Texts/AboutGeneral.txt -->
+          </div>
+        </article>
+
+        <!-- Right: Kurzprofil -->
+        <aside class="about__facts" aria-label="Kurzprofil">
+  <div class="about__fact">
+    <div class="about__factLabel">Für wen?</div>
+    <div class="about__factValue">Bands &amp; Artists · Veranstalter · Venues</div>
+  </div>
+
+  <div class="about__fact">
+    <div class="about__factLabel">Fokus</div>
+    <div class="about__factValue">Struktur, die entlastet – damit ihr euch auf Musik konzentriert</div>
+  </div>
+
+  <div class="about__fact">
+    <div class="about__factLabel">Leistungen</div>
+    <div class="about__factValue">Technik · Organisation · Design · Umsetzung</div>
+  </div>
+
+  <div class="about__fact">
+    <div class="about__factLabel">Standort</div>
+    <div class="about__factValue">Sitz in Kaiserslautern · Operation weltweit</div>
+  </div>
+
+  <a class="btn btn--ghost about__factBtn" href="contact.html">Kontakt</a>
+</aside>
+
       </div>
 
-      <div class="Spacer10"></div>
-      <div class="Spacer10"></div>
+      <!-- NEW: Option B as FULL-WIDTH block -->
+      <section class="whyBlock" aria-label="Warum LiPa">
+        <div class="whyBlock__inner">
+          <div class="whyBlock__head">
+            <div class="whyBlock__title">Warum LiPa?</div>
+            <div class="whyBlock__hint">Die Mischung, die in der Praxis wirklich hilft</div>
+          </div>
 
-    </div>
+          <div class="whyBlock__grid">
+            <div class="whyCard">
+              <div class="whyCard__title">Eine Anlaufstelle</div>
+              <div class="whyCard__text">
+                Organisation, Design, Web &amp; Content – du musst nicht fünf Dienstleister koordinieren.
+              </div>
+            </div>
 
-    <div id="FootBar"></div>
-  </body>
+            <div class="whyCard">
+              <div class="whyCard__title">Musik-Praxis statt Agentur-Theorie</div>
+              <div class="whyCard__text">
+                Wir kennen Proben, Gigs, Stress vor Shows – und bauen Lösungen, die live funktionieren.
+              </div>
+            </div>
 
-</html>
+            <div class="whyCard">
+              <div class="whyCard__title">Struktur, die kreativ macht</div>
+              <div class="whyCard__text">
+                Klarer Plan, saubere Abläufe, verlässliche Kommunikation – damit am Ende die Musik gewinnt.
+              </div>
+            </div>
 
-<script
+            <div class="whyCard whyCard--soft">
+              <div class="whyCard__title">Eigene Tools &amp; Templates</div>
+              <div class="whyCard__text">
+                Wenn Standard nicht reicht, bauen wir kleine Tools &amp; Vorlagen, die euren Workflow schneller machen.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
+      <!-- Offer Block -->
+      <section class="offerBlock" aria-label="Was wir anbieten">
+        <div class="offerBlock__inner">
+          <div class="offerBlock__head">
+            <div class="offerBlock__title">Was wir anbieten</div>
+            <div class="offerBlock__hint">Services &amp; ausgewählte eigene Tools</div>
+          </div>
 
-</script>
+          <div class="offerBlock__grid">
+            <a class="offerPill" href="Services-WebandHosting.html">Webentwicklung &amp; Hosting</a>
+            <a class="offerPill" href="Services-MarketingandPromotion.html">Marketing &amp; Promotion</a>
+            <a class="offerPill" href="Services-DesignandMediengestaltung.html">Design &amp; Mediengestaltung</a>
+            <a class="offerPill" href="Services-ManagementandOrganisation.html">Management &amp; Organisation</a>
+            <a class="offerPill" href="Services-MusikalischeLeistungen.html">Musikalische Leistungen</a>
+            <a class="offerPill offerPill--soft" href="Services-ProdukteandTools.html">Produkte &amp; Tools</a>
+          </div>
+        </div>
+      </section>
+    </section>
 
-<script>
-  var divHeight = document.getElementById('PersonalPictures1').offsetHeight;
-</script>
+    <!-- TEAM -->
+    <section class="section container team" aria-label="Team">
+      <h2 class="section__title">Das Team</h2>
 
-<script> 
+      <div class="team__grid">
+        <!-- Paul -->
+        <article class="personCard" data-person="paul">
+          <div class="personCard__media">
+            <img id="PersonalPicture1" class="personCard__img" src="Resources/PersonalPictures/Folie1.PNG" alt="Paul Dupont" />
+            <div class="personCard__overlay">
+              <div class="personCard__overlayText" id="PersonalPictures2"></div>
+            </div>
+          </div>
+          <div class="personCard__meta">
+            <div class="personCard__name">Paul Dupont</div>
+            <div class="personCard__role">Organisation · Technik · Design · Musik</div>
+          </div>
+        </article>
 
-    $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
+        <!-- Lisa -->
+        <article class="personCard" data-person="lisa">
+          <div class="personCard__media">
+            <img id="PersonalPicture2" class="personCard__img" src="Resources/PersonalPictures/Folie2.PNG" alt="Lisa Römer" />
+            <div class="personCard__overlay">
+              <div class="personCard__overlayText" id="PersonalPictures1"></div>
+            </div>
+          </div>
+          <div class="personCard__meta">
+            <div class="personCard__name">Lisa Römer</div>
+            <div class="personCard__role">Finanzen · Kommunikation · Details</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="FootBar"></footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
+
+      $("#FootBar").load("FixedPages/FootBar.html");
     });
 
-</script> 
-
-  <script>
-    document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
-    const textElement = document.querySelector('.AboutHeadline3-2');
-    const ImgElement = document.getElementById('PersonalPicture2');
-
-    let opacity = 1; // Startwert der Opazität
-    const duration = 100; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity -= decrement; // Reduzieren der Opazität
-        if (opacity <= 0) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 0; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
-    const textElement = document.querySelector('.AboutHeadline3-2');
-    const ImgElement = document.getElementById('PersonalPicture2');
-
-    textElement.textContent = "Lisa Römer"; // Text zurücksetzen
-
-    let opacity = 0; // Startwert der Opazität
-    const duration = 100; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity += decrement; // Reduzieren der Opazität
-        if (opacity >= 1) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 1; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
-    const textElement = document.querySelector('.AboutHeadline3-1');
-    const ImgElement = document.getElementById('PersonalPicture1');
-
-    let opacity = 1; // Startwert der Opazität
-    const duration = 200; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity -= decrement; // Reduzieren der Opazität
-        if (opacity <= 0) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 0; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
-    const textElement = document.querySelector('.AboutHeadline3-1');
-    const ImgElement = document.getElementById('PersonalPicture1');
-    textElement.textContent = "Paul Dupont"; // Text zurücksetzen
-
-    let opacity = 0; // Startwert der Opazität
-    const duration = 200; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity += decrement; // Reduzieren der Opazität
-        if (opacity >= 1) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 1; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-        ImgElement.style.opacity = opacity;
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
-    document.querySelector('.PersonalPictureContainer1 .TextOverlay').style.opacity = '1'; // Overlay von Container 1 anzeigen
-  });
-
-  document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
-    document.querySelector('.PersonalPictureContainer1 .TextOverlay').style.opacity = '0'; // Overlay von Container 1 ausblenden
-  });
-
-  document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
-    document.querySelector('.PersonalPictureContainer2 .TextOverlay').style.opacity = '1'; // Overlay von Container 1 anzeigen
-  });
-
-  document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
-    document.querySelector('.PersonalPictureContainer2 .TextOverlay').style.opacity = '0'; // Overlay von Container 1 ausblenden
-  });
-
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
-
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
-        }
-
-        document.getElementById('AboutGeneralText').innerHTML = allText1;
+    function loadTxt(url, elId) {
+      fetch(url)
+        .then(r => (r.ok ? r.text() : ""))
+        .then(t => {
+          const el = document.getElementById(elId);
+          if (!el) return;
+          el.innerHTML = (t || "").split("\n").join("<br>");
+        })
+        .catch(() => {});
     }
-    
-    txtFile1.open("GET", "Texts/AboutGeneral.txt", true);
-    txtFile1.send(null);
 
-    var txtFile2 = new XMLHttpRequest();
-    var allText2 ="EFJ";
-    
-    txtFile2.onreadystatechange = function () {
-        if (txtFile2.readyState === XMLHttpRequest.DONE && txtFile2.status == 200) {
-          allText2 = txtFile2.responseText;
-          allText2 = allText2.split("\n").join("<br>");
-        }
-
-        document.getElementById('PersonalPictures1').innerHTML = allText2;
-    }
-    
-    txtFile2.open("GET", "Texts/AboutLisa.txt", true);
-    txtFile2.send(null);
-
-    var txtFile3 = new XMLHttpRequest();
-    var allText3 ="EFJ";
-    
-    txtFile3.onreadystatechange = function () {
-        if (txtFile3.readyState === XMLHttpRequest.DONE && txtFile3.status == 200) {
-          allText3 = txtFile3.responseText;
-          allText3 = allText3.split("\n").join("<br>");
-        }
-
-        document.getElementById('PersonalPictures2').innerHTML = allText3;
-    }
-    
-    txtFile3.open("GET", "Texts/AboutPaul.txt", true);
-    txtFile3.send(null);
-
-</script> 
+    loadTxt("Texts/AboutGeneral.txt", "AboutGeneralText");
+    loadTxt("Texts/AboutLisa.txt", "PersonalPictures1");
+    loadTxt("Texts/AboutPaul.txt", "PersonalPictures2");
+  </script>
+</body>
+</html>

@@ -1,156 +1,293 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - Events</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – Events</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <body>
-    <div id="HeadBar"></div>
-    <div class="Spacer10"></div>
-    <div class="Headline1">EVENTS</div>
-    <div class="Headline2">Die Events unserer Partner-Bands</div>
+<body class="page--events">
+  <header id="HeadBar"></header>
 
-    <div class="Spacer10"></div>
+  <main class="page">
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        <h1 class="pageHero__title">Events</h1>
+        <p class="pageHero__subtitle">Alle Termine unserer Partner-Bands – als klare Agenda, ohne Google-Kalender-Chaos.</p>
+      </div>
+    </section>
 
-    <div class="PageBackground">
-      <table width="100%">
-        <tr height="600pt">
-          <th width="5%" class="PageSides"></th>
-          <th><iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTitle=0&showDate=0&showTabs=0&showCalendars=0&showTz=0&showNav=0&src=NzZkMGFiZWM0OTNjYTFmNGE1NTNjYzE0NGQwOWI2YTBjODE1NzQ2ODM1MWIzZGU4MzdhNTg1NzllOGFhYTVhOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23EF6C00" style="border-width:0" width="80%" height="600" frameborder="0" scrolling="no"></iframe></th>
-          <th width="5%" class="PageSides"></th>
-        </tr>
-      </table>
-      
-      <div class="Spacer10"></div>
-      <div class="Spacer10"></div>      
-      <div class="Spacer10"></div>
-    </div>
+    <section class="section container">
+      <div class="eventsShell">
+        <div class="eventsTop">
+          <div class="eventsTop__left">
+            <div class="eventsTop__kicker">Agenda</div>
+            <div class="eventsTop__title">Termine &amp; Gigs</div>
+            <div class="eventsTop__hint" id="eventsHint">Lade Events…</div>
+          </div>
 
-    <div id="FootBar"></div>
-  </body>
+          <div class="eventsTop__right">
+            <div class="chipRow" id="tagChips">
+              <button class="chip is-active" type="button" data-tag="">Alle</button>
+            </div>
 
-</html>
+            <label class="toggle">
+              <input type="checkbox" id="onlyUpcoming" checked />
+              <span class="toggle__ui" aria-hidden="true"></span>
+              <span class="toggle__label">Nur kommende</span>
+            </label>
+          </div>
+        </div>
 
-<script
+        <div class="eventsList" id="eventsList" aria-label="Event Liste">
+          <div class="eventsEmpty" id="eventsEmpty">Lade Events…</div>
+        </div>
 
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
+        <div class="eventsBottom">
+          <button class="btn btn--ghost eventsMore" type="button" id="loadMoreBtn">Mehr laden</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-</script>
+  <footer id="FootBar"></footer>
 
-<script>
-    $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
+      $("#FootBar").load("FixedPages/FootBar.html");
     });
+  </script>
 
-    document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
-    const textElement = document.querySelector('.AboutHeadline3-2');
+  <script>
+    /* =========================
+       CONFIG
+       ========================= */
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwggY3Wc_iQZ58jdb5I83gZguXYLagXmUA7nD89wlLAIs3j9ut5Uxu3TWbEM1rvylwNWw/exec";
+    const SHEET_ID  = "1oFEXMdaS3tfXsILJPayhCyz8SDltD82l0dFll1ZlFOA";
+    const SHEET_TAB = "Tabellenblatt1"; // oder wie dein Tab wirklich heißt
 
-    let opacity = 1; // Startwert der Opazität
-    const duration = 100; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
 
-    const fade = setInterval(() => {
-        opacity -= decrement; // Reduzieren der Opazität
-        if (opacity <= 0) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 0; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-    }, interval);
-});
+    /* =========================
+       STATE
+       ========================= */
+    let ALL_EVENTS = [];
+    let FILTER_TAG = "";
+    let SHOW_UPCOMING_ONLY = true;
+    let RENDER_LIMIT = 12;
 
-document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
-    const textElement = document.querySelector('.AboutHeadline3-2');
-    textElement.textContent = "Lisa Römer"; // Text zurücksetzen
+    /* =========================
+       JSONP loader
+       ========================= */
+    function loadJsonp(url) {
+      return new Promise((resolve, reject) => {
+        const cb = "cb_" + Math.random().toString(36).slice(2);
+        const s = document.createElement("script");
+        const t = setTimeout(() => { cleanup(); reject(new Error("timeout")); }, 12000);
 
-    let opacity = 0; // Startwert der Opazität
-    const duration = 100; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity += decrement; // Reduzieren der Opazität
-        if (opacity >= 1) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 1; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
-    const textElement = document.querySelector('.AboutHeadline3-1');
-
-    let opacity = 1; // Startwert der Opazität
-    const duration = 200; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity -= decrement; // Reduzieren der Opazität
-        if (opacity <= 0) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 0; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
-    const textElement = document.querySelector('.AboutHeadline3-1');
-    textElement.textContent = "Paul Dupont"; // Text zurücksetzen
-
-    let opacity = 0; // Startwert der Opazität
-    const duration = 200; // Dauer in Millisekunden
-    const interval = 50; // Intervall für die Schritte in Millisekunden
-    const decrement = interval / duration; // Schrittweise Verringerung
-
-    const fade = setInterval(() => {
-        opacity += decrement; // Reduzieren der Opazität
-        if (opacity >= 1) {
-            clearInterval(fade); // Stoppen, wenn Opazität 0 erreicht
-            opacity = 1; // Sicherheitshalber auf 0 setzen
-        }
-        textElement.style.opacity = opacity; // Anwenden der neuen Opazität
-    }, interval);
-});
-
-document.querySelector('.PersonalPictureContainer2').addEventListener('mouseover', function () {
-    document.querySelector('.PersonalPictureContainer1 .TextOverlay').style.opacity = '1'; // Overlay von Container 1 anzeigen
-  });
-
-  document.querySelector('.PersonalPictureContainer2').addEventListener('mouseout', function () {
-    document.querySelector('.PersonalPictureContainer1 .TextOverlay').style.opacity = '0'; // Overlay von Container 1 ausblenden
-  });
-
-  document.querySelector('.PersonalPictureContainer1').addEventListener('mouseover', function () {
-    document.querySelector('.PersonalPictureContainer2 .TextOverlay').style.opacity = '1'; // Overlay von Container 1 anzeigen
-  });
-
-  document.querySelector('.PersonalPictureContainer1').addEventListener('mouseout', function () {
-    document.querySelector('.PersonalPictureContainer2 .TextOverlay').style.opacity = '0'; // Overlay von Container 1 ausblenden
-  });
-
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
-
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
+        function cleanup(){
+          clearTimeout(t);
+          delete window[cb];
+          s.remove();
         }
 
-        document.getElementById('AboutGeneralText').innerHTML = allText1;
+        window[cb] = (data) => { cleanup(); resolve(data); };
+        s.onerror = () => { cleanup(); reject(new Error("jsonp failed")); };
+
+        const sep = url.includes("?") ? "&" : "?";
+        s.src = url + sep + "callback=" + cb;
+        document.head.appendChild(s);
+      });
     }
-    
-    txtFile1.open("GET", "Texts/AboutGeneral.txt", true);
-    txtFile1.send(null);
 
-</script> 
+    async function fetchEvents(){
+      const url =
+        `${WEB_APP_URL}?sheetId=${encodeURIComponent(SHEET_ID)}&tab=${encodeURIComponent(SHEET_TAB)}&status=published&limit=400`;
+      const data = await loadJsonp(url);
+      if (!data || !data.ok) throw new Error(data && data.error ? data.error : "API error");
+      ALL_EVENTS = Array.isArray(data.events) ? data.events : [];
+    }
+
+    function initUI(){
+      document.getElementById("onlyUpcoming").addEventListener("change", (e) => {
+        SHOW_UPCOMING_ONLY = !!e.target.checked;
+        RENDER_LIMIT = 12;
+        renderAll();
+      });
+
+      document.getElementById("loadMoreBtn").addEventListener("click", () => {
+        RENDER_LIMIT += 12;
+        renderAll();
+      });
+    }
+
+    function renderAll(){
+      renderTags();
+      renderList();
+      renderHint();
+    }
+
+    function renderHint(){
+      const hint = document.getElementById("eventsHint");
+      const shown = getFiltered().length;
+      hint.textContent = `${shown} Event(s) gefunden`;
+    }
+
+    function renderTags(){
+      const chipRow = document.getElementById("tagChips");
+      const tags = uniq(ALL_EVENTS.map(e => (e.tag || "").trim()).filter(Boolean)).sort((a,b)=>a.localeCompare(b));
+
+      chipRow.innerHTML =
+        `<button class="chip ${FILTER_TAG==="" ? "is-active":""}" type="button" data-tag="">Alle</button>` +
+        tags.map(t => `<button class="chip ${FILTER_TAG===t ? "is-active":""}" type="button" data-tag="${escAttr(t)}">${esc(t)}</button>`).join("");
+
+      chipRow.querySelectorAll(".chip").forEach(btn => {
+        btn.addEventListener("click", () => {
+          FILTER_TAG = btn.getAttribute("data-tag") || "";
+          RENDER_LIMIT = 12;
+          renderAll();
+        });
+      });
+    }
+
+    function getFiltered(){
+      const today = isoDate(new Date());
+      return ALL_EVENTS
+        .filter(e => !FILTER_TAG || (e.tag || "") === FILTER_TAG)
+        .filter(e => !SHOW_UPCOMING_ONLY || e.date >= today)
+        .slice()
+        .sort((a,b) => (a.startISO || a.date).localeCompare(b.startISO || b.date));
+    }
+
+    function renderList(){
+      const list = document.getElementById("eventsList");
+      const empty = document.getElementById("eventsEmpty");
+      const btnMore = document.getElementById("loadMoreBtn");
+
+      const filtered = getFiltered();
+      const slice = filtered.slice(0, RENDER_LIMIT);
+
+      if (!filtered.length){
+        list.innerHTML = `<div class="eventsEmpty">Keine Events (noch). Sheet füllen, dann lebt’s.</div>`;
+        btnMore.style.display = "none";
+        return;
+      }
+
+      list.innerHTML = slice.map(renderRow).join("");
+      attachRowClicks(list);
+
+      btnMore.style.display = (filtered.length > slice.length) ? "inline-flex" : "none";
+    }
+
+    function renderRow(e){
+      const time = (e.start && e.end) ? `${e.start}–${e.end}` : (e.start ? e.start : "");
+      const meta = [e.band, e.location].filter(Boolean).join(" · ");
+      const managed = e.managedBy ? `<span class="badge badge--dark">${esc(e.managedBy)}</span>` : "";
+      const tag = e.tag ? `<span class="badge badge--soft">${esc(e.tag)}</span>` : "";
+      const urlAttr = e.url ? `data-url="${escAttr(e.url)}"` : "";
+
+      return `
+        <article class="eRow" ${urlAttr}>
+          <div class="eRow__date">
+            <div class="eRow__day">${esc(dayShort(e.date))}</div>
+            <div class="eRow__num">${esc(dayNum(e.date))}</div>
+            <div class="eRow__mon">${esc(monthShort(e.date))}</div>
+          </div>
+
+          <div class="eRow__main">
+            <div class="eRow__top">
+              <div class="eRow__title">${esc(e.title)}</div>
+              <div class="eRow__time">${time ? esc(time) : "—"}</div>
+            </div>
+
+            ${meta ? `<div class="eRow__meta">${esc(meta)}</div>` : ``}
+
+            <div class="eRow__pills">
+              ${tag}
+              ${managed}
+              ${e.url ? `<span class="badge badge--link">Link</span>` : ``}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function attachRowClicks(container){
+      container.querySelectorAll(".eRow[data-url]").forEach(row => {
+        row.addEventListener("click", () => {
+          const url = row.getAttribute("data-url");
+          if (!url) return;
+          window.open(url, "_blank", "noopener");
+        });
+      });
+    }
+
+    /* ===== Utilities ===== */
+    function isoDate(d){
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,"0");
+      const da = String(d.getDate()).padStart(2,"0");
+      return `${y}-${m}-${da}`;
+    }
+    function uniq(arr){ return [...new Set(arr)]; }
+    function parseIsoDate(s){
+      const [y,m,d] = String(s).split("-").map(n => parseInt(n,10));
+      return new Date(y, (m||1)-1, d||1);
+    }
+    function dayShort(iso){
+      const d = parseIsoDate(iso);
+      return d.toLocaleDateString("de-DE", { weekday:"short" }).replace(".", "");
+    }
+    function dayNum(iso){ return String(parseIsoDate(iso).getDate()).padStart(2,"0"); }
+    function monthShort(iso){
+      const d = parseIsoDate(iso);
+      return d.toLocaleDateString("de-DE", { month:"short" }).replace(".", "");
+    }
+    function esc(s){
+      return String(s ?? "").replace(/[&<>"']/g, m => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+      }[m]));
+    }
+    function escAttr(s){ return esc(s).replace(/"/g, "&quot;"); }
+
+    /* =========================
+       Boot
+       ========================= */
+    (async function boot(){
+      initUI();
+      try{
+        await fetchEvents();
+        renderAll();
+      }catch(err){
+        console.error(err);
+        document.getElementById("eventsList").innerHTML =
+          `<div class="eventsEmpty">Fehler beim Laden. Check WEB_APP_URL & SHEET_ID.</div>`;
+        document.getElementById("eventsHint").textContent = "Fehler";
+        document.getElementById("loadMoreBtn").style.display = "none";
+      }
+    })();
+  </script>
+
+  <!-- Page-local CSS: clean light / matches your current vibe -->
+  <style>
+
+  </style>
+</body>
+</html>

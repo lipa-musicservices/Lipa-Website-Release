@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – Services</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header id="HeadBar"></header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="sHero" aria-label="Services Intro">
+      <div class="container sHero__inner">
+        <h1 class="sHero__title">Services</h1>
+        <p class="sHero__subtitle">
+          Modular. Skalierbar. Bühnentauglich. Wir kümmern uns um alles rund um euren professionellen Auftritt –
+          von Website bis Booking, von Design bis Noten.
+        </p>
+
+        <div class="sHero__cta">
+          <a class="btn btn--primary" href="contact.html">Projekt anfragen</a>
+          <a class="btn btn--ghost" href="#services">Alle Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES GRID -->
+    <section id="services" class="section container sSection" aria-label="Unsere Services">
+      <div class="sSection__head">
+        <h2 class="sSection__title">Was wir anbieten</h2>
+        <p class="sSection__hint">Wähle einen Bereich – wir machen daraus ein rundes Paket.</p>
+      </div>
+
+      <div class="sGrid sGrid--links">
+  <a class="sLinkCard" href="service-web.html">
+    <div class="sLinkCard__top">
+      <div class="sLinkCard__title">Webentwicklung &amp; Hosting</div>
+      <div class="sLinkCard__tag">Web</div>
+    </div>
+    <p class="sLinkCard__text">Websites, Domains, E-Mail – von Konzept bis laufender Pflege.</p>
+    <div class="sLinkCard__cta">Mehr erfahren →</div>
+  </a>
+
+  <a class="sLinkCard" href="service-marketing.html">
+    <div class="sLinkCard__top">
+      <div class="sLinkCard__title">Marketing &amp; Promotion</div>
+      <div class="sLinkCard__tag">Social</div>
+    </div>
+    <p class="sLinkCard__text">Content, Kampagnen, Reichweite – damit Musik gefunden wird.</p>
+    <div class="sLinkCard__cta">Mehr erfahren →</div>
+  </a>
+
+  <a class="sLinkCard" href="service-design.html">
+    <div class="sLinkCard__top">
+      <div class="sLinkCard__title">Design &amp; Mediengestaltung</div>
+      <div class="sLinkCard__tag">Brand</div>
+    </div>
+    <p class="sLinkCard__text">Logo, Cover, Visuals &amp; Werbemittel – konsistent und modern.</p>
+    <div class="sLinkCard__cta">Mehr erfahren →</div>
+  </a>
+
+  <a class="sLinkCard" href="service-management.html">
+    <div class="sLinkCard__top">
+      <div class="sLinkCard__title">Management &amp; Organisation</div>
+      <div class="sLinkCard__tag">Booking</div>
+    </div>
+    <p class="sLinkCard__text">Booking, Planung, Kommunikation – weniger Chaos, mehr Musik.</p>
+    <div class="sLinkCard__cta">Mehr erfahren →</div>
+  </a>
+
+  <a class="sLinkCard" href="service-music.html">
+    <div class="sLinkCard__top">
+      <div class="sLinkCard__title">Noten &amp; Arrangements</div>
+      <div class="sLinkCard__tag">Music</div>
+    </div>
+    <p class="sLinkCard__text">Notensatz, Arrangements, Setlists – bühnentauglich &amp; versionssicher.</p>
+    <div class="sLinkCard__cta">Mehr erfahren →</div>
+  </a>
+
+  <a class="sLinkCard sLinkCard--soft" href="service-tools.html">
+    <div class="sLinkCard__top">
+      <div class="sLinkCard__title">Produkte &amp; Tools</div>
+      <div class="sLinkCard__tag">Tools</div>
+    </div>
+    <p class="sLinkCard__text">Eigene Lösungen für Musiker – z. B. Workflow-Tools &amp; Footswitch.</p>
+    <div class="sLinkCard__cta">Mehr erfahren →</div>
+  </a>
+</div>
+
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="sCta" aria-label="Kontakt CTA">
+      <div class="container sCta__inner">
+        <div>
+          <div class="sCta__title">Lust auf ein rundes Setup?</div>
+          <div class="sCta__text">Sag uns kurz, was du brauchst – wir melden uns mit Vorschlag + nächstem Schritt.</div>
+        </div>
+        <a class="btn btn--primary" href="contact.html">Kontakt aufnehmen</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="FootBar"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
+
+      $("#FootBar").load("FixedPages/FootBar.html");
+    });
+  </script>
+</body>
+</html>

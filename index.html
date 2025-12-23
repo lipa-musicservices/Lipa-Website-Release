@@ -7,9 +7,11 @@
 
   <link rel="stylesheet" href="style.css" />
   <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+
 </head>
 
 <body>
+  <!-- Loaded via jQuery -->
   <header id="HeadBar"></header>
 
   <!-- HERO -->
@@ -25,13 +27,24 @@
       preload="auto"
     ></video>
 
+    <!-- NEW: Sound/Mute Button (oben rechts im Video) -->
+    <button class="hero__sound is-muted" type="button" id="heroSoundBtn" aria-label="Video stumm" aria-pressed="true" title="Sound an/aus">
+      <span class="hero__soundLabel" id="heroSoundLabel">Stumm</span>
+      <!-- simple speaker icon + slash -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 5 6.5 9H3v6h3.5L11 19V5Z"></path>
+        <path d="M15.5 8.5a4 4 0 0 1 0 7"></path>
+        <path d="M17.8 6.2a7 7 0 0 1 0 11.6"></path>
+        <path class="hero__soundSlash" d="M4 4l16 16"></path>
+      </svg>
+    </button>
+
     <!-- Overlays -->
     <div class="hero__shade" aria-hidden="true"></div>
     <div class="hero__grain" aria-hidden="true"></div>
 
-    <!-- Content -->
+    <!-- Content over video -->
     <section class="hero__content container">
-      <div class="hero__badge">LiPa Music Services</div>
 
       <h1 class="hero__title">
         Musik. Organisation.<br />
@@ -39,70 +52,86 @@
       </h1>
 
       <p class="hero__subtitle">
-        Booking, Bandmanagement, Design, Notenverwaltung, Arrangements & Gig-Organisation –
+        Booking, Bandmanagement, Design, Notenverwaltung, Arrangements &amp; Gig-Organisation –
         alles aus einer Hand, damit du dich aufs Wesentliche konzentrieren kannst: <b>die Show.</b>
       </p>
 
       <div class="hero__cta">
-        <a class="btn btn--primary" href="services.html">Services ansehen</a>
-        <a class="btn btn--ghost" href="contact.html">Kontakt</a>
-
-        <button class="btn btn--icon" type="button" id="toggleMute" aria-pressed="true" title="Ton an/aus">
-          <span class="btn__dot" aria-hidden="true"></span>
-          <span class="btn__label">Stumm</span>
-        </button>
+        <a class="btn btn--primary" href="services.html">Zu unseren Services</a>
+        <a class="btn btn--ghost" href="contact.html">Direkt kontaktieren</a>
       </div>
 
       <div class="hero__cards">
         <article class="card">
           <div class="card__kicker">Für Bands</div>
-          <div class="card__title">Gig-Organisation & Booking</div>
+          <div class="card__title">Gig-Organisation &amp; Booking</div>
           <div class="card__text">Saubere Kommunikation, klare Abläufe, stressfreie Auftritte.</div>
         </article>
 
         <article class="card">
           <div class="card__kicker">Für Artists</div>
-          <div class="card__title">Branding & Design</div>
+          <div class="card__title">Branding &amp; Design</div>
           <div class="card__text">Socials, Visuals, Assets – modern und konsistent.</div>
         </article>
 
         <article class="card">
-          <div class="card__kicker">Für Proben & Shows</div>
-          <div class="card__title">Noten & Arrangements</div>
+          <div class="card__kicker">Für Proben &amp; Shows</div>
+          <div class="card__title">Noten &amp; Arrangements</div>
           <div class="card__text">Übersichtlich, versionssicher, bühnentauglich.</div>
         </article>
       </div>
 
-      <a class="hero__scroll" href="#below" aria-label="Weiter scrollen">
-        <span class="hero__scrollLine" aria-hidden="true"></span>
-        <span class="hero__scrollText">Scroll</span>
-      </a>
     </section>
   </main>
 
-  <!-- BELOW HERO (optional quick section for nicer flow) -->
+  <!-- BELOW HERO -->
   <section id="below" class="section container">
-    <div class="section__grid">
-      <div>
-        <h2 class="section__title">Warum LiPa?</h2>
-        <p class="section__text">
+    <div class="why">
+      <div class="why__copy">
+        <div class="why__badge">Warum LiPa?</div>
+        <h2 class="why__title">Mehr Struktur. Weniger Stress. Bessere Gigs.</h2>
+
+        <p class="why__text">
           Weil gute Musik Planung braucht – aber <b>keinen Planungsstress</b>.
           Wir bringen Struktur rein, halten dir den Rücken frei und sorgen dafür,
           dass dein Projekt professionell wirkt: nach außen und intern.
         </p>
+
+        <div class="why__stats">
+          <div class="stat">
+            <div class="stat__num">1</div>
+            <div class="stat__label">Ansprechpartner</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">0</div>
+            <div class="stat__label">Chaos vor dem Gig</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">100%</div>
+            <div class="stat__label">Bühnen-ready</div>
+          </div>
+        </div>
       </div>
 
-      <div class="section__panel">
+      <div class="why__panel">
+        <div class="why__panelTitle">Was du bekommst</div>
+
         <ul class="checklist">
-          <li>Klare Prozesse & schnelle Kommunikation</li>
-          <li>Design, das nicht nach „PowerPoint 2009“ aussieht</li>
-          <li>Ordnung in Noten, Setlists & Assets</li>
-          <li>Support vor, während und nach dem Gig</li>
+          <li><span class="check"></span>Klare Prozesse &amp; schnelle Kommunikation</li>
+          <li><span class="check"></span>Design, das modern und konsistent ist</li>
+          <li><span class="check"></span>Ordnung in Noten, Setlists &amp; Assets</li>
+          <li><span class="check"></span>Support vor, während und nach dem Gig</li>
         </ul>
+
+        <div class="why__actions">
+          <a class="btn btn--primary" href="services.html">Zu unseren Services</a>
+          <a class="btn btn--ghost" href="contact.html">Direkt kontaktieren</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Loaded via jQuery -->
   <footer id="FootBar"></footer>
 
   <!-- Scripts -->
@@ -110,25 +139,65 @@
   <script>
     // Load shared parts
     $(function () {
-      $("#HeadBar").load("FixedPages/HeadBar.html");
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        // Burger logic (only if elements exist in HeadBar.html)
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+
+          // Close on outside click
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
+
       $("#FootBar").load("FixedPages/FootBar.html");
     });
 
-    // Video mute toggle (click video OR button)
+    // HERO VIDEO: mute/sound toggle
     const video = document.querySelector(".hero__video");
-    const btn = document.getElementById("toggleMute");
-    const label = btn.querySelector(".btn__label");
+    const soundBtn = document.getElementById("heroSoundBtn");
+    const soundLabel = document.getElementById("heroSoundLabel");
 
-    function setMuted(muted) {
-      video.muted = muted;
-      btn.setAttribute("aria-pressed", String(!muted));
-      label.textContent = muted ? "Stumm" : "Ton an";
+    function setVideoMuted(isMuted){
+      if (!video) return;
+      video.muted = isMuted;
+      video.volume = isMuted ? 0 : 1;
+
+      if (soundBtn){
+        soundBtn.classList.toggle("is-muted", isMuted);
+        soundBtn.setAttribute("aria-pressed", String(isMuted));
+        soundBtn.setAttribute("aria-label", isMuted ? "Video stumm" : "Video mit Sound");
+        if (soundLabel) soundLabel.textContent = isMuted ? "Stumm" : "Sound";
+      }
     }
 
-    setMuted(true);
+    // Default: muted (autoplay safe)
+    if (video) setVideoMuted(true);
 
-    video.addEventListener("click", () => setMuted(!video.muted));
-    btn.addEventListener("click", () => setMuted(!video.muted));
+    // Toggle on click
+    if (soundBtn){
+      soundBtn.addEventListener("click", async () => {
+        if (!video) return;
+        const targetMuted = !video.muted;
+
+        // Some browsers need a user gesture to allow audio; this click is that gesture.
+        try{
+          if (!targetMuted) await video.play();
+        }catch(e){ /* ignore */ }
+
+        setVideoMuted(targetMuted);
+      });
+    }
   </script>
 </body>
 </html>
