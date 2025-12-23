@@ -1,21 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
-  <body>
-    <div class="MenuBar">
-      <a href="index.html"><img class="MenuBarLogo" src="Resources/Logo Transparent hell.png"/></a>
-      <a class="MenuBarItem" href="index.html">HOME</a>
-      <a class="MenuBarItem" href="about.html">ÜBER UNS</a>
-      <a class="MenuBarItem" href="bands.html">BANDS</a>
-      <a class="MenuBarItem" href="events.html">EVENTS</a>
-      <!-- <a class="MenuBarItem" href="partner.html">PARTNER</a> -->
-      <a class="MenuBarItem" href="contact.html">KONTAKT</a>
-      <div class="SpacerHeadline"></div>
+<!-- FixedPages/HeadBar.html -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <a class="topbar__brand" href="index.html" aria-label="LiPa Music Services – Startseite">
+  <img src="Resources/Logo Transparent hell.png" alt="LiPa Music Services Logo" class="topbar__logo" />
+  <span class="topbar__brandText">
+    <span class="topbar__wordmark">LiPa</span>
+    <span class="topbar__sub">Music Services</span>
+  </span>
+</a>
+
+
+    <nav class="topbar__nav" data-nav>
+      <a href="services.html" class="topbar__link">Services</a>
+      <a href="projects.html" class="topbar__link">Referenzen</a>
+      <a href="about.html" class="topbar__link">Über uns</a>
+      <a href="contact.html" class="topbar__link topbar__link--cta">Kontakt</a>
+    </nav>
+
+    <button class="topbar__burger" type="button" aria-label="Menü öffnen" aria-expanded="false" data-burger>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="topbar__drawer" data-drawer>
+    <div class="topbar__drawerInner">
+      <a href="services.html" class="topbar__mLink">Services</a>
+      <a href="projects.html" class="topbar__mLink">Referenzen</a>
+      <a href="about.html" class="topbar__mLink">Über uns</a>
+      <a href="contact.html" class="topbar__mLink topbar__mLink--cta">Kontakt</a>
     </div>
-  </body>
-</html>
+  </div>
+</div>

@@ -1,52 +1,134 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa Music Services</title>
-    <link rel="stylesheet" href="Style.css"></link>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa Music Services</title>
 
-    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-  </head>
+  <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+</head>
 
-  <body>
-    <div id="HeadBar"></div>
-    <div>
-        <video width="100%" class="BackgroundVideoMain" src="Resources/Videos/LiPa Website Video Main.mp4" loop="true" autoplay="true" muted="true" preload="auto"></video>
+<body>
+  <header id="HeadBar"></header>
+
+  <!-- HERO -->
+  <main class="hero">
+    <!-- Background Video -->
+    <video
+      class="hero__video"
+      src="Resources/Videos/LiPa Website Video Main.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    ></video>
+
+    <!-- Overlays -->
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <section class="hero__content container">
+      <div class="hero__badge">LiPa Music Services</div>
+
+      <h1 class="hero__title">
+        Musik. Organisation.<br />
+        <span class="accent">Professionell bis ins Detail.</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Booking, Bandmanagement, Design, Notenverwaltung, Arrangements & Gig-Organisation –
+        alles aus einer Hand, damit du dich aufs Wesentliche konzentrieren kannst: <b>die Show.</b>
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="services.html">Services ansehen</a>
+        <a class="btn btn--ghost" href="contact.html">Kontakt</a>
+
+        <button class="btn btn--icon" type="button" id="toggleMute" aria-pressed="true" title="Ton an/aus">
+          <span class="btn__dot" aria-hidden="true"></span>
+          <span class="btn__label">Stumm</span>
+        </button>
+      </div>
+
+      <div class="hero__cards">
+        <article class="card">
+          <div class="card__kicker">Für Bands</div>
+          <div class="card__title">Gig-Organisation & Booking</div>
+          <div class="card__text">Saubere Kommunikation, klare Abläufe, stressfreie Auftritte.</div>
+        </article>
+
+        <article class="card">
+          <div class="card__kicker">Für Artists</div>
+          <div class="card__title">Branding & Design</div>
+          <div class="card__text">Socials, Visuals, Assets – modern und konsistent.</div>
+        </article>
+
+        <article class="card">
+          <div class="card__kicker">Für Proben & Shows</div>
+          <div class="card__title">Noten & Arrangements</div>
+          <div class="card__text">Übersichtlich, versionssicher, bühnentauglich.</div>
+        </article>
+      </div>
+
+      <a class="hero__scroll" href="#below" aria-label="Weiter scrollen">
+        <span class="hero__scrollLine" aria-hidden="true"></span>
+        <span class="hero__scrollText">Scroll</span>
+      </a>
+    </section>
+  </main>
+
+  <!-- BELOW HERO (optional quick section for nicer flow) -->
+  <section id="below" class="section container">
+    <div class="section__grid">
+      <div>
+        <h2 class="section__title">Warum LiPa?</h2>
+        <p class="section__text">
+          Weil gute Musik Planung braucht – aber <b>keinen Planungsstress</b>.
+          Wir bringen Struktur rein, halten dir den Rücken frei und sorgen dafür,
+          dass dein Projekt professionell wirkt: nach außen und intern.
+        </p>
+      </div>
+
+      <div class="section__panel">
+        <ul class="checklist">
+          <li>Klare Prozesse & schnelle Kommunikation</li>
+          <li>Design, das nicht nach „PowerPoint 2009“ aussieht</li>
+          <li>Ordnung in Noten, Setlists & Assets</li>
+          <li>Support vor, während und nach dem Gig</li>
+        </ul>
+      </div>
     </div>
-    <div id="FootBar"></div>
-  </body>
+  </section>
+
+  <footer id="FootBar"></footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Load shared parts
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html");
+      $("#FootBar").load("FixedPages/FootBar.html");
+    });
+
+    // Video mute toggle (click video OR button)
+    const video = document.querySelector(".hero__video");
+    const btn = document.getElementById("toggleMute");
+    const label = btn.querySelector(".btn__label");
+
+    function setMuted(muted) {
+      video.muted = muted;
+      btn.setAttribute("aria-pressed", String(!muted));
+      label.textContent = muted ? "Stumm" : "Ton an";
+    }
+
+    setMuted(true);
+
+    video.addEventListener("click", () => setMuted(!video.muted));
+    btn.addEventListener("click", () => setMuted(!video.muted));
+  </script>
+</body>
 </html>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function(){
-        $("video").prop('muted', true);
-
-        $("video").click( function (){
-            $(this).prop('muted', !$(this).prop('muted'));
-        });
-
-        $(".play-video").click( function (){
-            $("video").prop('muted', !$("video").prop('muted'));
-        });
-    });
-</script>
-
-<script
-
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-
-</script>
-
-<script> 
-
-    $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
-    });
-
-</script> 
