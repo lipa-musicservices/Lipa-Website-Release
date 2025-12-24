@@ -1,63 +1,90 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - Bands</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – Impressum</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <body>
-    <div id="HeadBar"></div>
-    <div class="Spacer10"></div>
-    <div class="Headline1">IMPRESSUM</div>
+<body class="page--impressum">
+  <header id="HeadBar"></header>
 
-    <div class="PageBackground">
-      <table width="100%">
-        <tr>
-          <th class="PageSides" width="10%"></th>
-          <th>
-            <div class="StandardText1" id="ImpressumText"></div>
-          </th>
-          <th class="PageSides" width="10%"></th>
-        </tr>
-      </table>
-    </div>
+  <main class="page">
+    <!-- HERO (einheitlich wie Events/Bands) -->
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        
+        <h1 class="pageHero__title">Impressum</h1>
+        <p class="pageHero__subtitle">Rechtliches &amp; Pflichtangaben – übersichtlich und sauber.</p>
+      </div>
+    </section>
 
-    <div class="Spacer10"></div>
-    <div class="Spacer10"></div>
-    <div id="FootBar"></div>
-  </body>
+    <!-- CONTENT -->
+    <section class="section container">
+      <div class="legalShell">
+        <article class="legalCard" aria-label="Impressum Inhalt">
+          <div class="legalCard__head">
+            <div class="legalCard__headTitle">Angaben gemäß § 5 TMG</div>
+            <div class="legalCard__headMeta" id="impressumStand">Stand: —</div>
+          </div>
 
-</html>
+          <div class="legalCard__body" id="ImpressumText">
+            Lade Impressum…
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
 
-<script
+  <div id="FootBar"></div>
 
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-
-</script>
-
-<script>
-  $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
+      $("#FootBar").load("FixedPages/FootBar.html");
     });
 
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
+    // Stand-Datum automatisch (heutiges Datum)
+    (function(){
+      const el = document.getElementById("impressumStand");
+      if (!el) return;
+      const d = new Date();
+      const dd = String(d.getDate()).padStart(2,"0");
+      const mm = String(d.getMonth()+1).padStart(2,"0");
+      const yy = d.getFullYear();
+      el.textContent = `Stand: ${dd}.${mm}.${yy}`;
+    })();
 
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
-        }
-
-        document.getElementById('ImpressumText').innerHTML = allText1;
-    }
-    
-    txtFile1.open("GET", "Texts/ImpressumText.txt", true);
-    txtFile1.send(null);
-
-</script> 
+    // TXT laden
+    fetch("Texts/ImpressumText.txt")
+      .then(r => (r.ok ? r.text() : ""))
+      .then(t => {
+        const el = document.getElementById("ImpressumText");
+        if (!el) return;
+        el.innerHTML = (t || "").split("\n").join("<br>");
+      })
+      .catch(() => {
+        const el = document.getElementById("ImpressumText");
+        if (el) el.textContent = "Impressum konnte nicht geladen werden.";
+      });
+  </script>
+</body>
+</html>

@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiPa - Datenschutz</title>
-    <link rel="stylesheet" href="Style.css"></link>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – Datenschutz</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
 
-  <body>
-    
-    <div id="HeadBar"></div>
-    <div class="Spacer10"></div>
-    <div class="Headline1">DATENSCHUTZ</div>
-    <div class="Headline2"></div>
+<body class="page--datenschutz">
+  <header id="HeadBar"></header>
 
-    <div class="Spacer10"></div>
+  <main class="page">
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        <h1 class="pageHero__title">Datenschutz</h1>
+        <p class="pageHero__subtitle">Informationen zum Umgang mit personenbezogenen Daten.</p>
+      </div>
+    </section>
 
-    <div class="PageBackground">
-      <table>
-        <th class="PageSides" width="10%"></th>
-        <th> <div class="StandardText1" id="Datenschutzerklärung"></div></th>
-          <th class="PageSides" width="10%"></th>
-      </table>
-    </div>
+    <!-- CONTENT -->
+    <section class="section container">
+      <article class="legalCard" aria-label="Datenschutzerklärung">
+        <div class="legalCard__head">
+          <div class="legalCard__headTitle">Datenschutzerklärung</div>
+          <div class="legalCard__headMeta">Stand: <span id="dsStand">–</span></div>
+        </div>
 
-    <div class="Spacer10"></div>    
-    <div class="Spacer10"></div>
-    <div class="Spacer10"></div>
+        <div class="legalCard__body" id="Datenschutzerklaerung">
+          <!-- loaded from Texts/Datenschutzerklärung.txt -->
+        </div>
+      </article>
+    </section>
+  </main>
 
-    <div id="FootBar"></div>
+  <div id="FootBar"></div>
 
-  </body>
+  <!-- Scripts (am Ende, damit Layout sauber lädt) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
+        const topbar = document.querySelector(".topbar");
+        const burger = document.querySelector("[data-burger]");
+        if (topbar && burger) {
+          burger.addEventListener("click", () => {
+            const open = topbar.classList.toggle("is-open");
+            burger.setAttribute("aria-expanded", String(open));
+          });
+          document.addEventListener("click", (e) => {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(e.target)) return;
+            topbar.classList.remove("is-open");
+            burger.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
 
-</html>
+      $("#FootBar").load("FixedPages/FootBar.html");
 
-<script
-
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-
-</script>
-
-<script>
-  $(function(){
-        $("#HeadBar").load("FixedPages/HeadBar.html"); 
-        $("#FootBar").load("FixedPages/FootBar.html"); 
+      loadTxt("Texts/Datenschutzerklärung.txt", "Datenschutzerklaerung");
     });
 
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
+    async function loadTxt(url, elId) {
+      try {
+        const r = await fetch(url, { cache: "no-store" });
+        const t = r.ok ? await r.text() : "";
+        const el = document.getElementById(elId);
+        if (!el) return;
 
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
+        // einfache Zeilenumbrüche -> HTML
+        el.innerHTML = (t || "").split("\n").join("<br>");
+
+        // optional: "Stand:" aus dem Text extrahieren, falls vorhanden
+        const m = (t || "").match(/Stand\s*:\s*(.+)/i);
+        if (m && m[1]) {
+          const standEl = document.getElementById("dsStand");
+          if (standEl) standEl.textContent = m[1].trim();
         }
-
-        document.getElementById('Datenschutzerklärung').innerHTML = allText1;
+      } catch (e) {
+        // fail silently
+      }
     }
-    
-    txtFile1.open("GET", "Texts/Datenschutzerklärung.txt", true);
-    txtFile1.send(null);
-
-</script> 
+  </script>
+</body>
+</html>
