@@ -7,6 +7,10 @@
 
   <link rel="stylesheet" href="Style.css" />
   <link rel="stylesheet" href="Services.css" />
+
+  <style>
+
+  </style>
 </head>
 
 <body class="page--services">
@@ -15,7 +19,6 @@
 
   <main class="page">
 
-    <!-- HERO -->
     <section class="svcHero" aria-label="Webentwicklung & Hosting Intro">
       <div class="container svcHero__inner">
 
@@ -33,19 +36,70 @@
           </div>
         </div>
 
-        <div class="svcHero__pills" aria-label="Highlights">
-  <span class="svcPill">⚡ Schnell &amp; sauber</span>
-  <span class="svcPill">🔒 Sicherheit</span>
-  <span class="svcPill">📈 Sichtbarkeit</span>
-</div>
+        <aside class="svcHero__aside" aria-label="Ablauf-Blueprint">
+          <div class="svcAsideBox svcAsideBox--blueprint">
 
+            <div class="svcAsideTop">
+              <div class="svcAsideBadge">Ablauf-Blueprint</div>
+              <div class="svcAsideTag">klar · verlässlich · stressarm</div>
+            </div>
 
+            <div class="svcFlow" role="list">
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Ziel &amp; Rahmen</div>
+                  <div class="svcFlowP">Was soll passieren, bis wann, für wen – und wie ambitioniert?</div>
+                </div>
+              </div>
+
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Plan &amp; Zuständigkeiten</div>
+                  <div class="svcFlowP">Seitenstruktur, Inhalte, Zuständigkeiten: wer liefert was bis wann?</div>
+                </div>
+              </div>
+
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Feedback &amp; Freigaben</div>
+                  <div class="svcFlowP">Saubere Review-Schleifen, klare Entscheidungen – ohne Endlos-Chat.</div>
+                </div>
+              </div>
+
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Launch &amp; Betreuung</div>
+                  <div class="svcFlowP">Go-live, Domain/DNS, Updates, Backups – damit’s stabil läuft.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="svcMiniStats" aria-label="Kurzfakten">
+              <div class="svcMiniStat">
+                <div class="svcMiniStatN">1</div>
+                <div class="svcMiniStatL">Ansprechpartner</div>
+              </div>
+              <div class="svcMiniStat">
+                <div class="svcMiniStatN">0</div>
+                <div class="svcMiniStatL">Technik-Frust</div>
+              </div>
+              <div class="svcMiniStat">
+                <div class="svcMiniStatN">100%</div>
+                <div class="svcMiniStatL">Online-ready</div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
       </div>
     </section>
 
     <section class="serviceShell container">
 
-      <!-- INTRO -->
       <section class="svcIntroCard" aria-label="Einordnung">
         <h2 class="svcIntroCard__title">Für wen ist das?</h2>
         <p class="svcIntroCard__text">
@@ -54,7 +108,6 @@
         </p>
       </section>
 
-      <!-- FEATURES -->
       <section class="serviceBlock" aria-label="Leistungen">
         <div class="serviceBlock__head">
           <h2 class="serviceBlock__title">Was wir bieten</h2>
@@ -104,7 +157,7 @@
             <div class="featureCard__title">E-Mail unter eigener Domain</div>
             <div class="featureCard__text">
               Professionelle Adressen wie <b>booking@</b>, <b>info@</b>, <b>management@</b>.
-              Plus Einrichtung auf Handy/Outlook/Apple Mail.
+              Optional mit Einrichtung auf Handy/Outlook/Apple Mail.
             </div>
           </article>
 
@@ -120,7 +173,131 @@
         </div>
       </section>
 
-      <!-- PACKAGES -->
+      <section class="serviceBlock" aria-label="Beispielseiten">
+        <div class="serviceBlock__head">
+          <h2 class="serviceBlock__title">Beispielseiten</h2>
+        </div>
+
+        <div class="svcRefs">
+          <a class="svcRefRow" href="https://estelledupont.de" target="_blank" rel="noopener">
+            <div class="svcRefMain">
+              <div class="svcRefTop">
+                <div class="svcRefTitle">estelledupont.de</div>
+                <span class="svcRefTag">Musiker</span>
+              </div>
+            </div>
+            <div class="svcRefGo" aria-hidden="true">↗</div>
+          </a>
+
+          <a class="svcRefRow" href="https://thommysax.com" target="_blank" rel="noopener">
+            <div class="svcRefMain">
+              <div class="svcRefTop">
+                <div class="svcRefTitle">thommysax.com</div>
+                <span class="svcRefTag">Musiker</span>
+              </div>
+            </div>
+            <div class="svcRefGo" aria-hidden="true">↗</div>
+          </a>
+
+          <a class="svcRefRow" href="https://funkgeraet.info" target="_blank" rel="noopener">
+            <div class="svcRefMain">
+              <div class="svcRefTop">
+                <div class="svcRefTitle">funkgeraet.info</div>
+                <span class="svcRefTag">Band</span>
+              </div>
+            </div>
+            <div class="svcRefGo" aria-hidden="true">↗</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="serviceBlock" aria-label="Tools we use">
+        <div class="serviceBlock__head">
+          <h2 class="serviceBlock__title">Tools we use</h2>
+          <p class="serviceBlock__hint">Ausgewählt, weil sie zuverlässig sind – und weil sie richtig gut aussehen, wenn’s läuft.</p>
+        </div>
+
+        <div class="svcTools" aria-label="Tool-Übersicht">
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">
+                VS Code
+                <span class="svcTipKicker">Editor</span>
+              </div>
+              <p class="svcTipText">Schnell, flexibel und perfekt für sauberen Frontend-Code – mit Extensions, Linting und Git-Flow.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">
+                Visual Studio
+                <span class="svcTipKicker">IDE</span>
+              </div>
+              <p class="svcTipText">Für größere Projekte, APIs und C#-Workflows – Debugging, Build-Pipelines und Tests auf Profi-Niveau.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">
+                Git
+                <span class="svcTipKicker">Versioning</span>
+              </div>
+              <p class="svcTipText">Versionen, saubere Releases: wir machen Änderungen nachvollziehbar – und rollbacks easy falls es doch vorher besser war.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">
+                Cloudflare
+                <span class="svcTipKicker">DNS/CDN</span>
+              </div>
+              <p class="svcTipText">DNS, SSL, Caching & Schutz: macht Seiten schneller und stabiler – auch bei Traffic-Spikes.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://avatars.githubusercontent.com/u/42441662?s=200&v=4">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">
+                Namecheap
+                <span class="svcTipKicker">Domains</span>
+              </div>
+              <p class="svcTipText">Domains & Verwaltung ohne Drama: Registrieren, renewen, DNS sauber setzen – fertig.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">
+                HTML5, CSS3 & Javascript
+                <span class="svcTipKicker">Base</span>
+              </div>
+              <p class="svcTipText">Semantik & Struktur, damit die Seite nicht nur gut aussieht, sondern auch barrierearm und SEO-tauglich ist.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="pakete" class="serviceBlock" aria-label="Pakete">
         <div class="serviceBlock__head">
           <h2 class="serviceBlock__title">Code-Website-Pakete</h2>
@@ -172,7 +349,6 @@
         </div>
       </section>
 
-      <!-- BUILDER/HYBRID -->
       <section class="serviceBlock" aria-label="Builder & Hybrid">
         <div class="serviceBlock__head">
           <h2 class="serviceBlock__title">Builder &amp; Hybrid</h2>
@@ -203,7 +379,6 @@
         </div>
       </section>
 
-      <!-- CTA -->
       <section class="serviceCta" aria-label="Kontakt">
         <div class="serviceCta__inner">
           <div>
@@ -227,7 +402,6 @@
 
   <div id="FootBar"></div>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     $(function () {

@@ -1001,3 +1001,1131 @@
   .svcMockRow{ grid-template-columns:1fr; }
   .svcMock{ height:56px; }
 }
+
+/* ============================
+   FIX: Hero right side cards
+   (replaces the pills)
+   ============================ */
+
+/* Make hero a 2-column layout */
+.svcHero__inner{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:16px;
+  align-items:stretch;
+}
+
+/* Left box keeps your current styling */
+.svcHero__top{
+  border-radius:22px;
+  padding:22px 22px 20px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  box-shadow:0 22px 60px rgba(16,24,40,.10);
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* Kill pills completely */
+.svcHero__pills{ display:none !important; }
+.svcPill{ display:none !important; }
+
+/* Right side container */
+.svcHero__side{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:12px;
+}
+
+/* The tall cards */
+.svcSideCard{
+  border-radius:28px;
+  padding:18px 14px;
+  min-height: 220px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:10px;
+
+  background:rgba(255,255,255,.40);
+  border:1px solid rgba(10,16,26,.10);
+  box-shadow:0 18px 45px rgba(16,24,40,.06);
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* Soft glass gradient like in your screenshot */
+.svcSideCard::before{
+  content:"";
+  position:absolute;
+  inset:-70px;
+  background:
+    radial-gradient(600px 280px at 20% 0%, rgba(124,92,255,.10), transparent 60%),
+    radial-gradient(600px 280px at 80% 0%, rgba(53,255,122,.08), transparent 60%),
+    radial-gradient(500px 220px at 50% 120%, rgba(0,0,0,.06), transparent 60%);
+  filter: blur(1px);
+  opacity:.9;
+}
+
+.svcSideCard__title,
+.svcSideCard__text{
+  position:relative;
+  z-index:1;
+}
+
+.svcSideCard__title{
+  font-weight:950;
+  letter-spacing:-.01em;
+  color:rgba(14,17,22,.88);
+  font-size:14px;
+}
+
+.svcSideCard__text{
+  color:rgba(14,17,22,.62);
+  line-height:1.6;
+  font-size:13.5px;
+}
+
+/* Responsive: stack right cards under left hero */
+@media (max-width: 980px){
+  .svcHero__inner{ grid-template-columns:1fr; }
+  .svcHero__side{ grid-template-columns:1fr; }
+  .svcSideCard{ min-height: 120px; }
+}
+/* ============================
+   HERO right side (rows like screenshot)
+   ============================ */
+
+/* make hero 2 columns */
+.svcHero__inner{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap:16px;
+  align-items:stretch;
+}
+
+/* kill old pills / old side cards */
+.svcHero__pills,
+.svcPill,
+.svcHero__side,
+.svcSideCard{
+  display:none !important;
+}
+
+/* right wrapper */
+.svcHero__aside{
+  display:flex;
+  align-items:stretch;
+}
+
+.svcAsideBox{
+  width:100%;
+  border-radius:22px;
+  padding:14px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  box-shadow:0 22px 60px rgba(16,24,40,.08);
+}
+
+/* rows */
+.svcAsideRow{
+  border-radius:16px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(10,16,26,.10);
+  box-shadow:0 10px 24px rgba(16,24,40,.05);
+  margin-bottom:10px;
+}
+
+.svcAsideLabel{
+  font-size:11px;
+  font-weight:950;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(14,17,22,.55);
+  margin-bottom:6px;
+}
+
+.svcAsideValue{
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:-.01em;
+  color:rgba(14,17,22,.90);
+  line-height:1.35;
+}
+
+/* contact button (full width like screenshot) */
+.svcAsideBtn{
+  width:100%;
+  justify-content:center;
+  margin-top:6px;
+  border-radius:16px;
+  padding:12px 14px;
+  font-weight:900;
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .svcHero__inner{ grid-template-columns:1fr; }
+  .svcAsideBox{ padding:12px; }
+  .svcAsideRow{ margin-bottom:10px; }
+}
+/* =========================================
+   DESIGN HERO: Right side rows (override chaos)
+   ========================================= */
+
+/* 2 columns on desktop, stack on mobile */
+.svcHero--design .svcHero__inner{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap:16px;
+  align-items:stretch;
+}
+
+/* remove old right showcase + pills ONLY on design page */
+.svcHero--design .svcHero__showcase{ display:none !important; }
+.svcHero--design .svcHero__pills{ display:none !important; }
+
+/* right wrapper */
+.svcHero--design .svcHero__aside{
+  display:flex;
+  align-items:stretch;
+}
+
+.svcHero--design .svcAsideBox{
+  width:100%;
+  border-radius:22px;
+  padding:14px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  box-shadow:0 22px 60px rgba(16,24,40,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+/* subtle tint like the other page */
+.svcHero--design .svcAsideBox::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background:
+    radial-gradient(700px 260px at 20% 0%, rgba(124,92,255,.10), transparent 60%),
+    radial-gradient(700px 260px at 80% 0%, rgba(53,255,122,.08), transparent 60%);
+  z-index:0;
+}
+
+.svcHero--design .svcAsideRow{
+  position:relative;
+  z-index:1;
+  border-radius:16px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(10,16,26,.10);
+  box-shadow:0 10px 24px rgba(16,24,40,.05);
+}
+.svcHero--design .svcAsideRow + .svcAsideRow{ margin-top:10px; }
+
+.svcHero--design .svcAsideLabel{
+  font-size:11px;
+  font-weight:950;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(14,17,22,.55);
+  margin-bottom:6px;
+}
+
+.svcHero--design .svcAsideValue{
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:-.01em;
+  color:rgba(14,17,22,.90);
+  line-height:1.35;
+}
+
+.svcHero--design .svcAsideBtn{
+  position:relative;
+  z-index:1;
+  width:100%;
+  justify-content:center;
+  margin-top:12px;
+  border-radius:16px;
+  padding:12px 14px;
+  font-weight:900;
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .svcHero--design .svcHero__inner{ grid-template-columns:1fr; }
+}
+/* =========================================
+   WEB HERO – Blueprint Aside (like Mgmt page)
+   ========================================= */
+
+.svcHero__aside{ display:flex; align-items:stretch; }
+
+.svcAsideBox--blueprint{
+  width:100%;
+  border-radius:22px;
+  padding:14px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  box-shadow:0 22px 60px rgba(16,24,40,.08);
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.svcAsideBox--blueprint::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background:
+    radial-gradient(700px 260px at 20% 0%, rgba(124,92,255,.10), transparent 60%),
+    radial-gradient(700px 260px at 80% 0%, rgba(53,255,122,.08), transparent 60%);
+  z-index:0;
+}
+
+.svcAsideTop{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.svcAsideBadge{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(14,17,22,.70);
+  background:rgba(14,17,22,.04);
+  border:1px solid rgba(10,16,26,.10);
+}
+
+.svcAsideTag{
+  font-size:12px;
+  font-weight:900;
+  color:rgba(14,17,22,.62);
+  white-space:nowrap;
+}
+
+.svcFlow{
+  position:relative;
+  z-index:1;
+  display:grid;
+  gap:10px;
+}
+
+.svcFlowRow{
+  display:grid;
+  grid-template-columns: 16px 1fr;
+  gap:10px;
+  align-items:start;
+  border-radius:16px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(10,16,26,.10);
+  box-shadow:0 10px 24px rgba(16,24,40,.05);
+}
+
+.svcDot{
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  margin-top:4px;
+  background: linear-gradient(90deg, rgba(53,255,122,.95), rgba(124,92,255,.85));
+  box-shadow:0 10px 22px rgba(16,24,40,.10);
+}
+
+.svcFlowH{
+  font-weight:950;
+  letter-spacing:-.01em;
+  color:rgba(14,17,22,.92);
+  margin-bottom:2px;
+}
+
+.svcFlowP{
+  color:rgba(14,17,22,.70);
+  line-height:1.55;
+  font-size:13.5px;
+}
+
+.svcMiniStats{
+  position:relative;
+  z-index:1;
+  margin-top:12px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+}
+
+.svcMiniStat{
+  border-radius:16px;
+  padding:10px 10px 9px;
+  background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.72));
+  border:1px solid rgba(10,16,26,.10);
+}
+
+.svcMiniStatN{
+  font-weight:950;
+  font-size:16px;
+  letter-spacing:-.02em;
+  color:rgba(14,17,22,.92);
+}
+
+.svcMiniStatL{
+  margin-top:2px;
+  font-size:12px;
+  font-weight:750;
+  color:rgba(14,17,22,.62);
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .svcAsideTag{ white-space:normal; }
+  .svcMiniStats{ grid-template-columns:1fr; }
+}
+/* ============================
+   Beispielseiten – Quick Links
+   ============================ */
+
+.svcSiteLinks{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.svcSiteLink{
+  display:inline-flex;
+  align-items:center;
+  padding:14px 18px;
+  border-radius:999px;
+  font-weight:950;
+  letter-spacing:-.01em;
+  text-decoration:none;
+
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  color:rgba(14,17,22,.90);
+
+  box-shadow:0 12px 30px rgba(16,24,40,.08);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.svcSiteLink:hover{
+  transform: translateY(-2px);
+  border-color: rgba(10,16,26,.20);
+  box-shadow:0 22px 60px rgba(16,24,40,.14);
+}
+
+.svcSiteLink--accent{
+  background: linear-gradient(90deg, rgba(53,255,122,.95), rgba(124,92,255,.85));
+  border:0;
+  color:#06110a;
+}
+
+/* ============================
+   Beispielseiten – 3 nebeneinander
+   ============================ */
+
+.svcRefs{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:12px;
+}
+
+.svcRefRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  border-radius:18px;
+  padding:14px 16px;
+
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  box-shadow:0 18px 45px rgba(10,16,26,.08);
+
+  text-decoration:none;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  min-width:0;
+}
+
+.svcRefRow:hover{
+  transform: translateY(-2px);
+  border-color: rgba(10,16,26,.18);
+  box-shadow:0 26px 70px rgba(16,24,40,.14);
+}
+
+.svcRefMain{ flex:1; min-width:0; }
+
+.svcRefTop{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.svcRefTitle{
+  font-weight:950;
+  letter-spacing:-.01em;
+  color:rgba(14,17,22,.92);
+  font-size:16px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  min-width:0;
+}
+
+.svcRefTag{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+
+  background:rgba(14,17,22,.04);
+  border:1px solid rgba(10,16,26,.10);
+  color:rgba(14,17,22,.72);
+}
+
+.svcRefGo{
+  flex:0 0 auto;
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+
+  background:rgba(14,17,22,.04);
+  border:1px solid rgba(10,16,26,.10);
+  color:rgba(14,17,22,.70);
+  font-weight:900;
+}
+
+/* optional: eins hervorheben */
+.svcRefRow--accent{
+  border:0;
+  background: linear-gradient(90deg, rgba(53,255,122,.95), rgba(124,92,255,.85));
+  box-shadow:0 22px 60px rgba(16,24,40,.14);
+}
+.svcRefRow--accent .svcRefTitle{ color:#06110a; }
+.svcRefRow--accent .svcRefGo{
+  background:rgba(255,255,255,.35);
+  border:1px solid rgba(255,255,255,.35);
+  color:#06110a;
+}
+.svcRefTag--dark{
+  background:rgba(255,255,255,.35);
+  border:1px solid rgba(255,255,255,.35);
+  color:#06110a;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .svcRefs{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px){
+  .svcRefs{ grid-template-columns: 1fr; }
+  .svcRefTitle{ white-space:normal; }
+}
+    /* ============================
+       Tools we use – Logo Grid + Hover Tooltip
+       (local-only, no extra deps)
+       ============================ */
+
+    .svcTools{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap:12px;
+    }
+
+    .svcTool{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+
+      border-radius:18px;
+      padding:14px 12px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(10,16,26,.12);
+      box-shadow:0 18px 45px rgba(10,16,26,.08);
+      cursor:default;
+
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      user-select:none;
+      min-height:72px;
+      overflow:visible;
+    }
+
+    .svcTool:hover{
+      transform: translateY(-2px);
+      border-color: rgba(10,16,26,.18);
+      box-shadow:0 26px 70px rgba(16,24,40,.14);
+    }
+
+    .svcToolLogo{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:rgba(14,17,22,.04);
+      border:1px solid rgba(10,16,26,.10);
+      overflow:hidden;
+    }
+
+    .svcToolLogo img{
+      width:22px;
+      height:22px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .svcToolName{
+      font-weight:950;
+      letter-spacing:-.01em;
+      color:rgba(14,17,22,.88);
+      font-size:13.5px;
+      line-height:1.1;
+      text-align:center;
+      display:none; /* default: keep it clean – can enable if you want names visible */
+    }
+
+    /* Tooltip */
+    .svcTip{
+      position:absolute;
+      left:50%;
+      transform: translateX(-50%) translateY(8px);
+      bottom: calc(100% + 10px);
+
+      width: min(320px, 72vw);
+      padding:12px 12px 11px;
+      border-radius:16px;
+
+      background: rgba(22,24,28,.96);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 24px 70px rgba(0,0,0,.30);
+
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index:50;
+    }
+
+    .svcTool:hover .svcTip,
+    .svcTool:focus-within .svcTip{
+      opacity:1;
+      transform: translateX(-50%) translateY(0px);
+    }
+
+    .svcTip::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform: translateX(-50%);
+      top:100%;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid rgba(22,24,28,.96);
+      filter: drop-shadow(0 3px 2px rgba(0,0,0,.18));
+    }
+
+    .svcTipTitle{
+      margin:0 0 6px;
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:-.01em;
+      color:rgba(255,255,255,.92);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .svcTipKicker{
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.60);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 8px;
+      border-radius:999px;
+      flex:0 0 auto;
+    }
+
+    .svcTipText{
+      margin:0;
+      color:rgba(255,255,255,.72);
+      line-height:1.55;
+      font-size:12.8px;
+    }
+
+    /* a subtle "featured" tool */
+    .svcTool--accent{
+      border:0;
+      background: linear-gradient(90deg, rgba(53,255,122,.95), rgba(124,92,255,.85));
+      box-shadow:0 22px 60px rgba(16,24,40,.14);
+    }
+    .svcTool--accent .svcToolLogo{
+      background:rgba(255,255,255,.35);
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .svcTool--accent .svcTip{
+      border-color: rgba(255,255,255,.20);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .svcTools{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px){
+      .svcTools{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    /* ===== Tools we use (compact + hover tooltip) ===== */
+.svcTools{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap:12px;
+}
+
+.svcTool{
+  position:relative;
+  border-radius:18px;
+  padding:14px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(10,16,26,.12);
+  box-shadow:0 18px 45px rgba(10,16,26,.06);
+  display:grid;
+  place-items:center;
+  cursor:default;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.svcTool:hover,
+.svcTool:focus{
+  transform: translateY(-2px);
+  border-color: rgba(10,16,26,.18);
+  box-shadow:0 26px 70px rgba(10,16,26,.10);
+  outline:none;
+}
+
+.svcToolLogo{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:rgba(14,17,22,.04);
+  border:1px solid rgba(10,16,26,.10);
+}
+
+.svcToolLogo img{
+  width:28px;
+  height:28px;
+  display:block;
+}
+
+.svcTip{
+  position:absolute;
+  left:50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(6px);
+  width:min(320px, 80vw);
+  border-radius:16px;
+  padding:12px 12px 10px;
+  background:rgba(22,24,28,.96);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 22px 60px rgba(0,0,0,.30);
+  color:rgba(255,255,255,.92);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .14s ease, transform .14s ease;
+  z-index:50;
+}
+
+.svcTip::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:100%;
+  transform: translateX(-50%);
+  border:8px solid transparent;
+  border-top-color: rgba(22,24,28,.96);
+}
+
+.svcTool:hover .svcTip,
+.svcTool:focus .svcTip{
+  opacity:1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.svcTipTitle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  font-weight:950;
+  letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+
+.svcTipKicker{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.70);
+  padding:6px 8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.svcTipText{
+  margin:0;
+  color:rgba(255,255,255,.75);
+  line-height:1.5;
+  font-size:13px;
+}
+
+@media (max-width: 980px){
+  .svcTools{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+@media (max-width: 620px){
+  .svcTools{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+/* ===== Blueprint Rows: clean like screenshot ===== */
+.svcFlowRow{
+  display:grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+  align-items:start;
+  padding: 14px 14px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(10,16,26,.10);
+  box-shadow: 0 10px 26px rgba(10,16,26,.06);
+}
+
+/* ===== Dot: single gradient dot for ALL rows (like screenshot) ===== */
+.svcDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 5px;
+
+  /* the dot itself */
+  background: linear-gradient(135deg, #35ff7a 0%, #7c7cff 100%);
+
+  /* subtle outer ring */
+  box-shadow:
+    0 0 0 4px rgba(53,255,122,.16),
+    0 0 0 8px rgba(124,124,255,.06);
+
+  /* keep it crisp */
+  flex: 0 0 auto;
+}
+
+/* IMPORTANT: remove per-row color overrides (delete these if you had them)
+.svcFlowRow:nth-child(2) .svcDot{...}
+.svcFlowRow:nth-child(3) .svcDot{...}
+.svcFlowRow:nth-child(4) .svcDot{...}
+*/
+/* ===== HERO: Blueprint Aside (match Webdev page) ===== */
+    .svcHero__inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .svcHero__inner{ grid-template-columns: 1fr; }
+    }
+
+    .svcHero__copy{ min-width: 0; }
+    .svcHero__showcase{ display:block; }
+
+    .svcAsideBox--blueprint{
+      border-radius: 22px;
+      padding: 16px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(10,16,26,.12);
+      box-shadow: 0 18px 45px rgba(10,16,26,.10);
+    }
+
+    .svcAsideTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .svcAsideBadge{
+      font-weight: 950;
+      letter-spacing: .02em;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(14,17,22,.06);
+      border: 1px solid rgba(10,16,26,.10);
+    }
+    .svcAsideTag{
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(14,17,22,.68);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(14,17,22,.04);
+      border: 1px solid rgba(10,16,26,.08);
+      white-space: nowrap;
+    }
+
+    .svcFlow{
+      display:grid;
+      gap: 10px;
+      margin: 12px 0 14px;
+    }
+
+    .svcFlowRow{
+      display:grid;
+      grid-template-columns: 14px 1fr;
+      gap: 10px;
+      align-items:start;
+      padding: 10px 10px;
+      border-radius: 16px;
+      background: rgba(14,17,22,.03);
+      border: 1px solid rgba(10,16,26,.08);
+    }
+
+    .svcDot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 4px;
+      background: #35ff7a;
+      box-shadow: 0 0 0 4px rgba(53,255,122,.18);
+    }
+
+    .svcFlowH{
+      font-weight: 950;
+      letter-spacing: -.01em;
+      margin-bottom: 4px;
+    }
+    .svcFlowP{
+      color: rgba(14,17,22,.72);
+      line-height: 1.35;
+      font-size: 13px;
+    }
+
+    .svcMiniStats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .svcMiniStat{
+      border-radius: 16px;
+      padding: 10px 10px;
+      background: rgba(14,17,22,.03);
+      border: 1px solid rgba(10,16,26,.08);
+      text-align:center;
+    }
+    .svcMiniStatN{
+      font-weight: 1000;
+      font-size: 18px;
+      letter-spacing: -.02em;
+      margin-bottom: 2px;
+    }
+    .svcMiniStatL{
+      font-size: 12px;
+      font-weight: 850;
+      color: rgba(14,17,22,.68);
+    }
+
+    /* ===== Tools we use (logo grid + tooltip) ===== */
+    .svcTools{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+    @media (max-width: 980px){
+      .svcTools{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px){
+      .svcTools{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .svcTool{
+      position:relative;
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(10,16,26,.12);
+      box-shadow:0 18px 45px rgba(10,16,26,.06);
+      display:grid;
+      place-items:center;
+      cursor:default;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .svcTool:hover,
+    .svcTool:focus{
+      transform: translateY(-2px);
+      border-color: rgba(10,16,26,.18);
+      box-shadow:0 26px 70px rgba(10,16,26,.10);
+      outline:none;
+    }
+
+    .svcToolLogo{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:rgba(14,17,22,.04);
+      border:1px solid rgba(10,16,26,.10);
+      overflow:hidden;
+    }
+    .svcToolLogo img{
+      width:28px;
+      height:28px;
+      display:block;
+    }
+
+    .svcTip{
+      position:absolute;
+      left:50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%) translateY(6px);
+      width:min(340px, 86vw);
+      border-radius:16px;
+      padding:12px 12px 10px;
+      background:rgba(22,24,28,.96);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 22px 60px rgba(0,0,0,.30);
+      color:rgba(255,255,255,.92);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .14s ease, transform .14s ease;
+      z-index:50;
+    }
+    .svcTip::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:100%;
+      transform: translateX(-50%);
+      border:8px solid transparent;
+      border-top-color: rgba(22,24,28,.96);
+    }
+    .svcTool:hover .svcTip,
+    .svcTool:focus .svcTip{
+      opacity:1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .svcTipTitle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:950;
+      letter-spacing:-.01em;
+      margin-bottom:6px;
+    }
+    .svcTipKicker{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.70);
+      padding:6px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      white-space: nowrap;
+    }
+    .svcTipText{
+      margin:0;
+      color:rgba(255,255,255,.75);
+      line-height:1.5;
+      font-size:13px;
+    }
+
+    /* ===== Accounts: same look as Website refs (svcRefRow style) ===== */
+    .svcRefs{
+      display:grid;
+      gap: 12px;
+    }
+    .svcRefRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(10,16,26,.12);
+      box-shadow: 0 18px 45px rgba(10,16,26,.06);
+      text-decoration:none;
+      color: inherit;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .svcRefRow:hover{
+      transform: translateY(-2px);
+      border-color: rgba(10,16,26,.18);
+      box-shadow: 0 26px 70px rgba(10,16,26,.10);
+    }
+
+    .svcRefTop{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .svcRefTitle{
+      font-weight: 1000;
+      letter-spacing: -.01em;
+    }
+    .svcRefTag{
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(14,17,22,.05);
+      border: 1px solid rgba(10,16,26,.10);
+      color: rgba(14,17,22,.75);
+    }
+    .svcRefGo{
+      font-size: 18px;
+      font-weight: 900;
+      opacity: .65;
+    }

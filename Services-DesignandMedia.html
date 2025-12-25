@@ -1,4 +1,3 @@
-<!-- Services-DesignandMedia.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -8,295 +7,481 @@
 
   <link rel="stylesheet" href="Style.css" />
   <link rel="stylesheet" href="Services.css" />
+
+  <style>
+    /* --- Ensure blueprint dots can be colored per row (same vibe as Webentwicklung) --- */
+    .svcFlowRow{ position:relative; }
+    .svcDot{
+      width:14px; height:14px; border-radius:999px;
+      display:inline-block; flex:0 0 auto;
+      background: #35ff7a;
+      box-shadow: 0 0 0 4px rgba(53,255,122,.18);
+    }
+    .svcDot.is-green{ background:#35ff7a; box-shadow:0 0 0 4px rgba(53,255,122,.18); }
+    .svcDot.is-blue{ background:#6b7bff; box-shadow:0 0 0 4px rgba(107,123,255,.18); }
+    .svcDot.is-pink{ background:#ff66cc; box-shadow:0 0 0 4px rgba(255,102,204,.18); }
+    .svcDot.is-yellow{ background:#ffcc55; box-shadow:0 0 0 4px rgba(255,204,85,.18); }
+
+    /* --- Tools grid + tooltip (falls Services.css das nicht schon komplett abdeckt) --- */
+    .svcTools{
+      display:grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){
+      .svcTools{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px){
+      .svcTools{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .svcTool{
+      position:relative;
+      border-radius: 16px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(10,16,26,.10);
+      box-shadow: 0 10px 26px rgba(10,16,26,.06);
+      padding: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 78px;
+      cursor: default;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      outline: none;
+    }
+    .svcTool:hover, .svcTool:focus{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(10,16,26,.10);
+      border-color: rgba(10,16,26,.16);
+    }
+
+    .svcToolLogo img{
+      width: 40px;
+      height: 40px;
+      display:block;
+      filter: drop-shadow(0 6px 14px rgba(10,16,26,.12));
+    }
+
+    .svcTip{
+      position:absolute;
+      left: 50%;
+      bottom: calc(100% + 12px);
+      transform: translateX(-50%) translateY(6px);
+      width: min(320px, 70vw);
+      background: rgba(255,255,255,.98);
+      border: 1px solid rgba(10,16,26,.12);
+      border-radius: 16px;
+      box-shadow: 0 18px 45px rgba(10,16,26,.14);
+      padding: 12px 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .15s ease, transform .15s ease;
+      z-index: 20;
+    }
+    .svcTool:hover .svcTip,
+    .svcTool:focus .svcTip{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: none;
+    }
+    .svcTipTitle{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--text, #0e1116);
+      margin-bottom: 6px;
+    }
+    .svcTipKicker{
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(14,17,22,.62);
+      background: rgba(10,16,26,.06);
+      border: 1px solid rgba(10,16,26,.08);
+      border-radius: 999px;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+    .svcTipText{
+      margin: 0;
+      color: rgba(14,17,22,.70);
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+    .svcTip::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-8px;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: rgba(255,255,255,.98);
+      border-right: 1px solid rgba(10,16,26,.12);
+      border-bottom: 1px solid rgba(10,16,26,.12);
+      transform: translateX(-50%) rotate(45deg);
+    }
+  </style>
 </head>
 
 <body class="page--services">
+
   <header id="HeadBar"></header>
 
   <main class="page">
-    <!-- HERO -->
-    <section class="svcHero svcHero--design" aria-label="Design und Mediengestaltung">
+
+    <section class="svcHero" aria-label="Design & Mediengestaltung Intro">
       <div class="container svcHero__inner">
-        <div class="svcHero__copy">
-          <div class="svcHero__kicker">Services</div>
+
+        <div class="svcHero__top">
+          <div class="svcHero__kicker">Service</div>
           <h1 class="svcHero__title">Design &amp; Mediengestaltung</h1>
           <p class="svcHero__subtitle">
             Design macht Musik sichtbar. Wir geben deiner Kunst ein Gesicht – vom Logo über Cover bis zur kompletten
             Markenwelt. Schön reicht nicht: Es muss auch funktionieren – auf Bühne, Socials und Print.
           </p>
 
-          <div class="svcHero__pills" aria-label="Highlights">
-            <span class="svcPill">🎨 Visual Identity</span>
-            <span class="svcPill">💿 Cover &amp; Artwork</span>
-            <span class="svcPill">📌 Social &amp; Print</span>
-          </div>
-
           <div class="svcHero__actions">
-            <a class="btn btn--primary" href="contact.html">Angebot anfragen</a>
-            <a class="btn btn--ghost" href="Services.html">Alle Services</a>
-          </div>
-
-          <p class="svcHero__tip">
-            Tipp: Wenn ihr schon Referenzen/Styles habt (Bands, Covers, Farben), geht’s schneller – sonst bauen wir das gemeinsam.
-          </p>
-        </div>
-
-        <!-- Showcase -->
-        <div class="svcHero__showcase" aria-hidden="true">
-          <div class="svcShowCard svcShowCard--design">
-            <div class="svcShowCard__top">
-              <div class="svcShowBadge">Look &amp; Feel</div>
-              <div class="svcShowTag">Konsistent · Wiedererkennbar · Druckfähig</div>
-            </div>
-
-            <div class="svcShowGrid">
-              <div class="svcShowItem">
-                <div class="svcShowItem__h">Logo &amp; Brand</div>
-                <div class="svcShowItem__p">Von clean bis bold – passend zu Genre &amp; Zielgruppe.</div>
-              </div>
-              <div class="svcShowItem">
-                <div class="svcShowItem__h">Cover &amp; Artwork</div>
-                <div class="svcShowItem__p">Album, Single, Booklet – in einem stimmigen Set.</div>
-              </div>
-              <div class="svcShowItem">
-                <div class="svcShowItem__h">Social Packs</div>
-                <div class="svcShowItem__p">Templates, Formate, Story-Sets – ohne jedes Mal neu zu basteln.</div>
-              </div>
-              <div class="svcShowItem">
-                <div class="svcShowItem__h">Event &amp; Print</div>
-                <div class="svcShowItem__p">Poster, Flyer, Banner – hochaufgelöst &amp; sauber exportiert.</div>
-              </div>
-            </div>
-
-            <div class="svcMockRow">
-              <div class="svcMock svcMock--1"></div>
-              <div class="svcMock svcMock--2"></div>
-              <div class="svcMock svcMock--3"></div>
-            </div>
+            <a class="btn btn--primary" href="contact.html">Unverbindlich anfragen</a>
+            <a class="btn btn--ghost" href="#pakete">Pakete ansehen</a>
           </div>
         </div>
+
+        <aside class="svcHero__aside" aria-label="Ablauf-Blueprint">
+          <div class="svcAsideBox svcAsideBox--blueprint">
+
+            <div class="svcAsideTop">
+              <div class="svcAsideBadge">Ablauf-Blueprint</div>
+              <div class="svcAsideTag">klar · verlässlich · stressarm</div>
+            </div>
+
+            <div class="svcFlow" role="list">
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot is-green" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Ziel &amp; Tonalität</div>
+                  <div class="svcFlowP">Wer soll euch finden – und was soll nach dem Scroll passieren?</div>
+                </div>
+              </div>
+
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot is-blue" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Plan &amp; Assets</div>
+                  <div class="svcFlowP">Formate, Timeline, Vorlagen, Copy – damit’s konstant aussieht.</div>
+                </div>
+              </div>
+
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot is-pink" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Erstellung &amp; Freigaben</div>
+                  <div class="svcFlowP">Saubere Review-Schleifen, klare Entscheidungen – ohne Endlos-Chat.</div>
+                </div>
+              </div>
+
+              <div class="svcFlowRow" role="listitem">
+                <span class="svcDot is-yellow" aria-hidden="true"></span>
+                <div class="svcFlowMain">
+                  <div class="svcFlowH">Ausspielung &amp; Optimierung</div>
+                  <div class="svcFlowP">Druck/Export, Kanäle, Varianten – was funktioniert, wird verstärkt.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="svcMiniStats" aria-label="Kurzfakten">
+              <div class="svcMiniStat">
+                <div class="svcMiniStatN">100%</div>
+                <div class="svcMiniStatL">Konsistenz</div>
+              </div>
+              <div class="svcMiniStat">
+                <div class="svcMiniStatN">100%</div>
+                <div class="svcMiniStatL">Druck-ready</div>
+              </div>
+              <div class="svcMiniStat">
+                <div class="svcMiniStatN">0</div>
+                <div class="svcMiniStatL">Design-Chaos</div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
       </div>
     </section>
 
-    <!-- WAS WIR BIETEN -->
-    <section class="section container">
-      <div class="svcSectionHead">
-        <h2 class="svcSectionTitle">Was wir bieten</h2>
-        <p class="svcSectionText">
-          Ein Look, der euch repräsentiert – und der auf allen Kanälen funktioniert: von Insta bis Bühnenbanner.
+    <section class="serviceShell container">
+
+      <section class="svcIntroCard" aria-label="Einordnung">
+        <h2 class="svcIntroCard__title">Für wen ist das?</h2>
+        <p class="svcIntroCard__text">
+          Für Bands, Artists, Veranstalter &amp; Projekte, die einen <b>wiedererkennbaren Look</b> wollen –
+          ohne sich durch Druckprofile, Export-Settings und „warum ist das Logo pixelig?!“ zu kämpfen.
         </p>
-      </div>
+      </section>
 
-      <div class="svcFeatureGrid">
-        <article class="svcFeature">
-          <div class="svcFeature__icon">🧠</div>
-          <h3 class="svcFeature__title">Brand &amp; Markenidentität</h3>
-          <p class="svcFeature__text">
-            Farben, Typo, Bildsprache: Wir schaffen einen Rahmen, damit alles „wie aus einem Guss“ wirkt.
-          </p>
-        </article>
-
-        <article class="svcFeature">
-          <div class="svcFeature__icon">🖼️</div>
-          <h3 class="svcFeature__title">Flyer, Plakate &amp; Werbemittel</h3>
-          <p class="svcFeature__text">
-            Design für Events, Tour, Releases – digital &amp; print, inkl. sauberer Druckdaten.
-          </p>
-        </article>
-
-        <article class="svcFeature">
-          <div class="svcFeature__icon">💿</div>
-          <h3 class="svcFeature__title">Album- &amp; Single-Artwork</h3>
-          <p class="svcFeature__text">
-            Cover, Inlay, Booklet oder CD-Onbody: Ihr bekommt ein stimmiges Paket, nicht nur eine Datei.
-          </p>
-        </article>
-
-        <article class="svcFeature">
-          <div class="svcFeature__icon">📱</div>
-          <h3 class="svcFeature__title">Social Media im einheitlichen Look</h3>
-          <p class="svcFeature__text">
-            Templates + Varianten: mehr Wiedererkennung, weniger Stress beim Posten.
-          </p>
-        </article>
-
-        <article class="svcFeature">
-          <div class="svcFeature__icon">🌐</div>
-          <h3 class="svcFeature__title">Grafiken für Websites &amp; Online-Auftritte</h3>
-          <p class="svcFeature__text">
-            Header, Banner, Grafiken: optimiert für Ladezeiten, Auflösung und Plattformen.
-          </p>
-        </article>
-
-        <article class="svcFeature svcFeature--soft">
-          <div class="svcFeature__icon">🧩</div>
-          <h3 class="svcFeature__title">Komplette Markenwelt</h3>
-          <p class="svcFeature__text">
-            Wenn’s rund werden soll: vom Logo bis zu Event-Set und Social Kit – alles in einem System.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- PRODUKTE / PAKETE -->
-    <section class="section container">
-      <div class="svcSectionHead">
-        <h2 class="svcSectionTitle">Unsere Design-Produkte</h2>
-        <p class="svcSectionText">
-          Die Pakete sind ein Einstieg – Details passen wir auf Stil, Umfang und Einsatz an.
-        </p>
-      </div>
-
-      <div class="svcPlanGrid">
-        <!-- Essentials -->
-        <article class="svcPlan">
-          <div class="svcPlan__head">
-            <div class="svcPlan__name">Essentials</div>
-            <div class="svcPlan__badge">Solide Basis</div>
-          </div>
-
-          <div class="svcPlan__note">Album-Design</div>
-          <ul class="svcList">
-            <li>3 Front- &amp; Back-Cover-Konzepte</li>
-            <li>1 finale Ausführung des Wunsch-Konzepts</li>
-            <li>Lieferung als PNG- &amp; JPG-Dateien</li>
-          </ul>
-
-          <div class="svcPlan__divider"></div>
-
-          <div class="svcPlan__note">Logo-Design</div>
-          <ul class="svcList">
-            <li>4 Logo-Konzepte</li>
-            <li>2 finale Ausführungen des Wunsch-Konzepts</li>
-            <li>Lieferung als PNG &amp; JPG</li>
-          </ul>
-
-          <div class="svcPlan__divider"></div>
-
-          <div class="svcPlan__note">Werbung</div>
-          <ul class="svcList">
-            <li>3 Designs im einheitlichen Look (z. B. Plakat/Banner)</li>
-            <li>Anpassung an Farbwelt &amp; Logo</li>
-            <li>Lieferung als PNG &amp; JPG (4k &amp; 1080p)</li>
-            <li>Druck auf Wunsch verfügbar</li>
-          </ul>
-
-          <div class="svcPlan__foot">
-            <div class="svcPlan__fit">Gut geeignet für: Einstieg, kleinere Projekte</div>
-            <a class="btn btn--ghost svcPlan__cta" href="contact.html">Anfragen</a>
-          </div>
-        </article>
-
-        <!-- Premium -->
-        <article class="svcPlan svcPlan--featured">
-          <div class="svcPlan__head">
-            <div class="svcPlan__name">Premium</div>
-            <div class="svcPlan__badge">Mehr Varianten</div>
-          </div>
-
-          <div class="svcPlan__note">Album-Design</div>
-          <ul class="svcList">
-            <li>4 Front- &amp; Back-Cover-Konzepte</li>
-            <li>2 Inlay-Konzepte</li>
-            <li>2 finale Ausführungen</li>
-            <li>Lieferung als PNG- &amp; JPG-Dateien</li>
-          </ul>
-
-          <div class="svcPlan__divider"></div>
-
-          <div class="svcPlan__note">Logo-Design</div>
-          <ul class="svcList">
-            <li>8 Logo-Konzepte</li>
-            <li>4 finale Ausführungen</li>
-            <li>Doppelausführung für helle &amp; dunkle Hintergründe</li>
-            <li>Lieferung als SVG (Vektor) + PNG/JPG</li>
-            <li>Mini-Styleguide</li>
-          </ul>
-
-          <div class="svcPlan__divider"></div>
-
-          <div class="svcPlan__note">Werbung</div>
-          <ul class="svcList">
-            <li>6 Designs im einheitlichen Look + 2 Varianten</li>
-            <li>Lieferung als PNG &amp; JPG (4k &amp; 1080p)</li>
-            <li>Druck auf Wunsch verfügbar</li>
-          </ul>
-
-          <div class="svcPlan__foot">
-            <div class="svcPlan__fit">Gut geeignet für: regelmäßige Releases &amp; Events</div>
-            <a class="btn btn--primary svcPlan__cta" href="contact.html">Premium anfragen</a>
-          </div>
-        </article>
-
-        <!-- Corporate -->
-        <article class="svcPlan">
-          <div class="svcPlan__head">
-            <div class="svcPlan__name">Corporate</div>
-            <div class="svcPlan__badge">Komplett</div>
-          </div>
-
-          <div class="svcPlan__note">Album-Design</div>
-          <ul class="svcList">
-            <li>6 Front- &amp; Back-Cover-Konzepte</li>
-            <li>4 Inlay-Konzepte</li>
-            <li>3 finale Ausführungen</li>
-            <li>Lieferung als PNG- &amp; JPG-Dateien</li>
-          </ul>
-
-          <div class="svcPlan__divider"></div>
-
-          <div class="svcPlan__note">Logo-Design</div>
-          <ul class="svcList">
-            <li>15 Logo-Konzepte</li>
-            <li>Komplettes Logo-Set (farbig / schwarz-weiß / outlines) als Doppel</li>
-            <li>Ausführung für helle &amp; dunkle Hintergründe</li>
-            <li>Corporate-Styleguide</li>
-            <li>Einsatzrichtlinien</li>
-          </ul>
-
-          <div class="svcPlan__divider"></div>
-
-          <div class="svcPlan__note">Werbung / Event</div>
-          <ul class="svcList">
-            <li>Komplettes Event-Designset (Plakate, Banner, Social-Posts, …)</li>
-            <li>Alle Designs in Hoch- &amp; Querformat</li>
-            <li>Lieferung als PNG &amp; JPG (4k &amp; 1080p)</li>
-          </ul>
-
-          <div class="svcPlan__foot">
-            <div class="svcPlan__fit">Gut geeignet für: langfristige Markenentwicklung</div>
-            <a class="btn btn--ghost svcPlan__cta" href="contact.html">Anfragen</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="svcNote">
-        Selbstverständlich stimmen wir alle Gestaltungselemente und Medien auf Format, Veranstaltung und individuelle Anforderungen ab –
-        zielgerichtet, konsistent und am Gesamtauftritt orientiert.
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section container">
-      <div class="svcCta svcCta--design">
-        <div>
-          <div class="svcCta__kicker">Next step</div>
-          <h2 class="svcCta__title">Ein Look, der hängen bleibt.</h2>
-          <p class="svcCta__text">
-            Schick uns 2–3 Referenzen (oder sag „keine Ahnung“) – wir schlagen dir einen Stil vor und machen ein Angebot.
-          </p>
+      <section class="serviceBlock" aria-label="Leistungen">
+        <div class="serviceBlock__head">
+          <h2 class="serviceBlock__title">Was wir bieten</h2>
+          <p class="serviceBlock__hint">Modular, sauber, wiederverwendbar – damit’s nicht jedes Mal bei null startet.</p>
         </div>
-        <div class="svcCta__actions">
-          <a class="btn btn--primary" href="contact.html">Kontakt</a>
-          <a class="btn btn--ghost" href="bands.html">Unsere Bands</a>
+
+        <div class="featureGrid">
+
+          <article class="featureCard">
+            <div class="featureCard__icon">🎨</div>
+            <div class="featureCard__title">Brand &amp; Visual Identity</div>
+            <div class="featureCard__text">
+              Farben, Typo, Bildsprache: ein System, das auf Socials, Bühne und Print zusammenpasst.
+            </div>
+          </article>
+
+          <article class="featureCard">
+            <div class="featureCard__icon">💿</div>
+            <div class="featureCard__title">Cover &amp; Artwork</div>
+            <div class="featureCard__text">
+              Single/Album, Banner, Inlays: ein stimmiges Paket, nicht nur eine „eine Datei“.
+            </div>
+          </article>
+
+          <article class="featureCard">
+            <div class="featureCard__icon">📌</div>
+            <div class="featureCard__title">Social Packs</div>
+            <div class="featureCard__text">
+              Templates + Varianten für Stories/Posts/Reels – mehr Wiedererkennung, weniger Stress.
+            </div>
+          </article>
+
+          <article class="featureCard">
+            <div class="featureCard__icon">🖼️</div>
+            <div class="featureCard__title">Plakate, Flyer, Banner</div>
+            <div class="featureCard__text">
+              Digital &amp; Print: Layouts, Formate, Druckdaten – inklusive „passt wirklich zur Druckerei“.
+            </div>
+          </article>
+
+          <article class="featureCard">
+            <div class="featureCard__icon">🧠</div>
+            <div class="featureCard__title">Styleguide &amp; Ordnung</div>
+            <div class="featureCard__text">
+              Mini-Guide, Ablagestruktur, Exporte: damit alle im Team dieselbe Sprache sprechen.
+            </div>
+          </article>
+
+          <article class="featureCard featureCard--soft">
+            <div class="featureCard__icon">🧩</div>
+            <div class="featureCard__title">Komplettsystem</div>
+            <div class="featureCard__text">
+              Wenn’s rund werden soll: Logo + Cover + Event-Set + Social Kit – alles aus einem Guss.
+            </div>
+          </article>
+
         </div>
-      </div>
+      </section>
+
+      <section class="serviceBlock" aria-label="Tools we use">
+        <div class="serviceBlock__head">
+          <h2 class="serviceBlock__title">Tools we use</h2>
+          <p class="serviceBlock__hint">Ausgewählt, weil sie zuverlässig sind – und weil’s am Ende sauber aussieht.</p>
+        </div>
+
+        <div class="svcTools" aria-label="Tool-Übersicht">
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobeindesign.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Adobe InDesign <span class="svcTipKicker">Layout</span></div>
+              <p class="svcTipText">Druck- und Editorial-Layouts: Flyer, Plakate, Booklets – mit sauberen Exporten & Preflight.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobephotoshop.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Photoshop <span class="svcTipKicker">Bild</span></div>
+              <p class="svcTipText">Bildbearbeitung, Retusche, Compositing – wenn’s „das muss knallen“ sein soll.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobeillustrator.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Illustrator <span class="svcTipKicker">Vektor</span></div>
+              <p class="svcTipText">Logos, Icons, vektorbasierte Assets – scharf in jeder Größe, egal ob Insta oder Banner.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftclipchamp.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Clipchamp <span class="svcTipKicker">Video</span></div>
+              <p class="svcTipText">Schnelle Edits, Reels/Shorts, Untertitel – perfekt für „wir brauchen das bis morgen“.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/overleaf.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Overleaf <span class="svcTipKicker">LaTeX</span></div>
+              <p class="svcTipText">Saubere PDFs, One-Pager, technische Dokumente – kollaborativ und versionierbar.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftword.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Microsoft Word <span class="svcTipKicker">Docs</span></div>
+              <p class="svcTipText">Texte, Briefings, Pressetexte – schnell, kompatibel, und am Ende ohne Format-Horror.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Figma <span class="svcTipKicker">System</span></div>
+              <p class="svcTipText">Designsysteme & Vorlagen: schneller abstimmen, konsistent bleiben, weniger Ping-Pong.</p>
+            </div>
+          </div>
+
+          <div class="svcTool" tabindex="0">
+            <div class="svcToolLogo" aria-hidden="true">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googledrive.svg">
+            </div>
+            <div class="svcTip" role="tooltip">
+              <div class="svcTipTitle">Drive/Cloud <span class="svcTipKicker">Ablage</span></div>
+              <p class="svcTipText">Saubere Struktur für Assets & Freigaben – damit niemand „final_final2“ suchen muss.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pakete" class="serviceBlock" aria-label="Pakete">
+        <div class="serviceBlock__head">
+          <h2 class="serviceBlock__title">Unsere Design-Pakete</h2>
+          <p class="serviceBlock__hint">Einstiegspakete – Details passen wir auf Stil, Umfang und Einsatz an.</p>
+        </div>
+
+        <div class="pkgGrid">
+
+          <article class="pkgCard">
+            <div class="pkgCard__badge">Essentials</div>
+            <div class="pkgCard__head">Solide Basis</div>
+            <ul>
+              <li>Logo oder Cover: 3–4 Konzeptvarianten</li>
+              <li>1 finale Richtung + Exportpaket</li>
+              <li>Social-Header/Banner (Basis)</li>
+              <li>Druckdaten-Setup (Basis)</li>
+              <li>1 Feedbackrunde</li>
+            </ul>
+            <div class="pkgCard__foot">Gut geeignet für: Einstieg, kleinere Projekte</div>
+          </article>
+
+          <article class="pkgCard pkgCard--highlight">
+            <div class="pkgCard__badge pkgCard__badge--hot">Beliebt</div>
+            <div class="pkgCard__head">Premium</div>
+            <ul>
+              <li>Alles aus „Essentials“ + zusätzlich:</li>
+              <li>Mehr Varianten + Social Pack (Templates)</li>
+              <li>Mini-Styleguide (Farben/Typo/Regeln)</li>
+              <li>Druckdaten (Pro) für 2–3 Formate</li>
+              <li>2–3 Feedbackrunden</li>
+            </ul>
+            <div class="pkgCard__foot">Gut geeignet für: regelmäßige Releases &amp; Events</div>
+          </article>
+
+          <article class="pkgCard">
+            <div class="pkgCard__badge">Corporate</div>
+            <div class="pkgCard__head">Komplett</div>
+            <ul>
+              <li>Brand-System + umfangreiches Asset-Set</li>
+              <li>Logo-Set (farbig / s-w / outlines) + Regeln</li>
+              <li>Event-/Tour-Set (Print + Social)</li>
+              <li>Styleguide (voll) + Ablage-Struktur</li>
+              <li>Langfristige Betreuung optional</li>
+            </ul>
+            <div class="pkgCard__foot">Gut geeignet für: langfristige Markenentwicklung</div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="serviceBlock" aria-label="Von uns verwaltete Accounts">
+        <div class="serviceBlock__head">
+          <h2 class="serviceBlock__title">Von uns verwaltete Accounts</h2>
+          <p class="serviceBlock__hint">Schnell anklicken, anschauen – gleiches Design wie bei den Beispielseiten.</p>
+        </div>
+
+        <div class="svcRefs">
+          <a class="svcRefRow" href="https://www.instagram.com/lipa.musicservices/" target="_blank" rel="noopener">
+            <div class="svcRefMain">
+              <div class="svcRefTop">
+                <div class="svcRefTitle">LiPa Music Services</div>
+                <span class="svcRefTag">Instagram</span>
+              </div>
+            </div>
+            <div class="svcRefGo" aria-hidden="true">↗</div>
+          </a>
+
+          <a class="svcRefRow" href="https://www.instagram.com/funk_geraet/" target="_blank" rel="noopener">
+            <div class="svcRefMain">
+              <div class="svcRefTop">
+                <div class="svcRefTitle">FUNKgeræt</div>
+                <span class="svcRefTag">Band</span>
+              </div>
+            </div>
+            <div class="svcRefGo" aria-hidden="true">↗</div>
+          </a>
+
+          <a class="svcRefRow" href="https://www.instagram.com/bluegroovequartet/" target="_blank" rel="noopener">
+            <div class="svcRefMain">
+              <div class="svcRefTop">
+                <div class="svcRefTitle">Blue Groove Quartet</div>
+                <span class="svcRefTag">Musiker</span>
+              </div>
+            </div>
+            <div class="svcRefGo" aria-hidden="true">↗</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="serviceCta" aria-label="Kontakt">
+        <div class="serviceCta__inner">
+          <div>
+            <div class="serviceCta__kicker">Nächster Schritt</div>
+            <h3 class="serviceCta__title">Sag kurz, was du brauchst – wir bauen dir ein stimmiges Set.</h3>
+            <p class="serviceCta__text">
+              2–3 Referenzen (oder „keine Ahnung“), Einsatz (Social? Print? Bühne?) und grob der Zeitplan – den Rest sortieren wir.
+            </p>
+          </div>
+
+          <div class="serviceCta__actions">
+            <a href="contact.html" class="btn btn--primary">Kontakt aufnehmen</a>
+            <a href="services.html" class="btn btn--ghost">Zur Service-Übersicht</a>
+          </div>
+        </div>
+      </section>
+
     </section>
   </main>
 
   <div id="FootBar"></div>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     $(function () {
@@ -316,9 +501,9 @@
           });
         }
       });
-
       $("#FootBar").load("FixedPages/FootBar.html");
     });
   </script>
+
 </body>
 </html>
