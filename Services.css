@@ -2129,3 +2129,46 @@
       font-weight: 900;
       opacity: .65;
     }
+
+    .svcExampleGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.svcExampleFigure{
+  margin:0;
+}
+
+.svcExampleImg{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:14px;
+  border:1px solid rgba(10,16,26,.10);
+  box-shadow:0 12px 30px rgba(10,16,26,.08);
+}
+
+.svcExampleCap{
+  margin-top:8px;
+  font-size:12px;
+  font-weight:850;
+  color:rgba(14,17,22,.62);
+  letter-spacing:.02em;
+}
+
+@media (max-width: 980px){
+  .svcExampleGrid{ grid-template-columns: 1fr; }
+}
+
+/* Management: Dots im Blueprint -> grün wie Webdev */
+.svcFlow__dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  margin-top:5px;
+  background:#35ff7a;
+  box-shadow: 0 0 0 4px rgba(53,255,122,.18);
+  flex:0 0 auto;
+}
