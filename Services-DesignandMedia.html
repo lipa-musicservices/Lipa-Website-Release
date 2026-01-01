@@ -355,27 +355,10 @@
   
   <div id="FootBar"></div>
   
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     $(function () {
-      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
-        const topbar = document.querySelector(".topbar");
-        const burger = document.querySelector("[data-burger]");
-        if (topbar && burger) {
-          burger.addEventListener("click", () => {
-            const open = topbar.classList.toggle("is-open");
-            burger.setAttribute("aria-expanded", String(open));
-          });
-          document.addEventListener("click", (e) => {
-            if (!topbar.classList.contains("is-open")) return;
-            if (topbar.contains(e.target)) return;
-            topbar.classList.remove("is-open");
-            burger.setAttribute("aria-expanded", "false");
-          });
-        }
-      });
-
+      $("#HeadBar").load("FixedPages/HeadBar.html");
       $("#FootBar").load("FixedPages/FootBar.html");
     });
   </script>

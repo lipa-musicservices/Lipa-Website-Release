@@ -172,7 +172,7 @@
     Rechnen statt raten: Break-even, Kosten, Gage pro Person.
     <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
       <a class="btn btn--primary" href="Downloads/LiPa_Gagenrechner_Demo.xlsx" download>
-        ⬇️ Demo herunterladen
+        ⬇️ Gigrechner-Demo bald verfügbar!
       </a>
       <a class="btn btn--ghost" href="contact.html">
         Vollversion anfragen
@@ -278,27 +278,10 @@
 
   <div id="FootBar"></div>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     $(function () {
-      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
-        const topbar = document.querySelector(".topbar");
-        const burger = document.querySelector("[data-burger]");
-        if (topbar && burger) {
-          burger.addEventListener("click", () => {
-            const open = topbar.classList.toggle("is-open");
-            burger.setAttribute("aria-expanded", String(open));
-          });
-          document.addEventListener("click", (e) => {
-            if (!topbar.classList.contains("is-open")) return;
-            if (topbar.contains(e.target)) return;
-            topbar.classList.remove("is-open");
-            burger.setAttribute("aria-expanded", "false");
-          });
-        }
-      });
-
+      $("#HeadBar").load("FixedPages/HeadBar.html");
       $("#FootBar").load("FixedPages/FootBar.html");
     });
   </script>

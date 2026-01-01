@@ -134,34 +134,14 @@
   <!-- Loaded via jQuery -->
   <div id="FootBar"></div>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
-    // Load shared parts
     $(function () {
-      $("#HeadBar").load("FixedPages/HeadBar.html", function () {
-        // Burger logic (only if elements exist in HeadBar.html)
-        const topbar = document.querySelector(".topbar");
-        const burger = document.querySelector("[data-burger]");
-
-        if (topbar && burger) {
-          burger.addEventListener("click", () => {
-            const open = topbar.classList.toggle("is-open");
-            burger.setAttribute("aria-expanded", String(open));
-          });
-
-          // Close on outside click
-          document.addEventListener("click", (e) => {
-            if (!topbar.classList.contains("is-open")) return;
-            if (topbar.contains(e.target)) return;
-            topbar.classList.remove("is-open");
-            burger.setAttribute("aria-expanded", "false");
-          });
-        }
-      });
-
+      $("#HeadBar").load("FixedPages/HeadBar.html");
       $("#FootBar").load("FixedPages/FootBar.html");
     });
+  </script>
+  <script>
 
     // HERO VIDEO: mute/sound toggle
     const video = document.querySelector(".hero__video");

@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="FixedPages/HeadBar.css">
 
-
 <div class="topbar">
   <div class="container topbar__inner">
     <!-- Brand -->
@@ -30,10 +29,11 @@
           <a class="navDrop__item" href="Services-MarketingandPromotion.html" role="menuitem">Marketing &amp; Promotion</a>
           <a class="navDrop__item" href="Services-DesignandMedia.html" role="menuitem">Design &amp; Mediengestaltung</a>
           <a class="navDrop__item" href="Services-ManagementandOrganization.html" role="menuitem">Management &amp; Organisation</a>
-          <a class="navDrop__item" href="Services-NotesandArrangements.html" role="menuitem">Noten &amp; Arrangements</a>
-          <a class="navDrop__item navDrop__item--soft" href="Services-ProductsandTools.html" role="menuitem">Produkte &amp; Tools</a>
         </div>
       </div>
+
+      <!-- NEW: Products & Shop -->
+      <a class="topbar__link" href="products.html">Produkte &amp; Shop</a>
 
       <a class="topbar__link" href="about.html">About</a>
       <a class="topbar__link" href="bands.html">Bands</a>
@@ -54,33 +54,32 @@
       <a class="topbar__mLink" href="index.html">Home</a>
 
       <!-- Services row (link + toggle button) -->
-<div class="mAcc" data-macc>
-  <div class="mAcc__row">
-    <a class="topbar__mLink mAcc__link" href="services.html">Services</a>
+      <div class="mAcc" data-macc>
+        <div class="mAcc__row">
+          <a class="topbar__mLink mAcc__link" href="services.html">Services</a>
 
-    <button class="mAcc__toggle" type="button"
-        aria-label="Services Untermenü öffnen"
-        aria-expanded="false"
-        data-macc-toggle
-        onclick="event.preventDefault(); event.stopPropagation();
-                 const acc=this.closest('.mAcc');
-                 const open=acc.classList.toggle('is-open');
-                 this.setAttribute('aria-expanded', String(open));">
-  <span class="mAcc__chev" aria-hidden="true">▾</span>
-</button>
+          <button class="mAcc__toggle" type="button"
+              aria-label="Services Untermenü öffnen"
+              aria-expanded="false"
+              data-macc-toggle
+              onclick="event.preventDefault(); event.stopPropagation();
+                       const acc=this.closest('.mAcc');
+                       const open=acc.classList.toggle('is-open');
+                       this.setAttribute('aria-expanded', String(open));">
+            <span class="mAcc__chev" aria-hidden="true">▾</span>
+          </button>
+        </div>
 
-  </div>
+        <div class="mSub" data-macc-panel>
+          <a class="topbar__mSublink" href="Services-WebandHosting.html">Webentwicklung &amp; Hosting</a>
+          <a class="topbar__mSublink" href="Services-MarketingandPromotion.html">Marketing &amp; Promotion</a>
+          <a class="topbar__mSublink" href="Services-DesignandMedia.html">Design &amp; Mediengestaltung</a>
+          <a class="topbar__mSublink" href="Services-ManagementandOrganization.html">Management &amp; Organisation</a>
+        </div>
+      </div>
 
-  <div class="mSub" data-macc-panel>
-    <a class="topbar__mSublink" href="Services-WebandHosting.html">Webentwicklung &amp; Hosting</a>
-    <a class="topbar__mSublink" href="Services-MarketingandPromotion.html">Marketing &amp; Promotion</a>
-    <a class="topbar__mSublink" href="Services-DesignandMedia.html">Design &amp; Mediengestaltung</a>
-    <a class="topbar__mSublink" href="Services-ManagementandOrganization.html">Management &amp; Organisation</a>
-    <a class="topbar__mSublink" href="Services-NotesandArrangements.html">Noten &amp; Arrangements</a>
-    <a class="topbar__mSublink" href="Services-ProductsandTools.html">Produkte &amp; Tools</a>
-  </div>
-</div>
-
+      <!-- NEW: Products & Shop -->
+      <a class="topbar__mLink" href="products.html">Produkte &amp; Shop</a>
 
       <a class="topbar__mLink" href="about.html">About</a>
       <a class="topbar__mLink" href="bands.html">Bands</a>
@@ -89,6 +88,7 @@
     </div>
   </div>
 </div>
+
 <script>
 (() => {
   const getTopbar = (el) => el.closest?.(".topbar");
@@ -135,7 +135,15 @@
       const topbar = getTopbar(mToggle);
       if (!topbar) return;
       e.preventDefault();
+      return;
     }
-  }
-)})
+
+    // Klick außerhalb schließt Menü (optional – wenn du willst)
+    const topbar = document.querySelector(".topbar");
+    if (!topbar) return;
+    if (!topbar.classList.contains("is-open")) return;
+    if (topbar.contains(t)) return;
+    closeAll(topbar);
+  });
+})();
 </script>
