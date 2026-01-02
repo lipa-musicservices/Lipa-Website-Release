@@ -1490,3 +1490,54 @@ body.page--events{ --container: 1240px; }
 @media (max-width: 520px){
   .hero__soundLabel{ display:none; }
 }
+
+/* =========================================================
+   FIX: Index WHY (Warum LiPa / Was du bekommst) – Mobile
+   -> GANZ ans Ende der Style.css
+   ========================================================= */
+
+/* verhindert "Grid sprengt Breite" / iOS Shrink-Bugs */
+.why,
+.why *{
+  min-width: 0;
+}
+
+/* ab Tablet/Mobile: EINSPALTIG statt 2 Spalten */
+@media (max-width: 980px){
+  .why{
+    grid-template-columns: 1fr;
+    padding: 10px 0 56px; /* optional etwas kürzer */
+  }
+
+  /* Stats nicht 3 gequetschte Kästchen nebeneinander */
+  .why__stats{
+    grid-template-columns: 1fr;
+  }
+
+  /* Buttons sauber untereinander */
+  .why__actions{
+    flex-direction: column;
+  }
+  .why__actions .btn{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* WICHTIG: globales ".btn{width:100%}" killt dir Layout in vielen Modulen.
+   Wir lassen es global bestehen, aber heilen es gezielt für Bereiche,
+   wo 2 Buttons nebeneinander sinnvoll sind (z.B. Hero CTA). */
+@media (max-width: 520px){
+  /* Hero Buttons dürfen nebeneinander/wrappen statt stumpf fullwidth */
+  .hero__cta .btn{
+    width: auto;
+  }
+
+  /* WHY Panel: Buttons okay fullwidth (bleibt so) */
+  /* (hier nichts ändern) */
+}
+
+/* Checklist-Zeilen dürfen umbrechen statt zu drücken */
+.checklist li{
+  word-break: break-word;
+}
