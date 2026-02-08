@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>LiPa — Webdesign inkl. Hosting | Saisonstart-Rabatt</title>
+
+  <style>
+    :root{
+      --bg0:#07060d;
+      --bg1:#0b0716;
+
+      --text: rgba(245,246,255,.92);
+      --muted: rgba(245,246,255,.70);
+
+      --purple:#8a4bff;
+      --purple2:#c176ff;
+      --green:#3CFFB6;
+      --green2:#00d7a2;
+
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 22px;
+      --radius2: 28px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 900px at 78% 46%, rgba(138,75,255,.45), transparent 60%),
+        radial-gradient(820px 820px at 20% 70%, rgba(60,255,182,.22), transparent 62%),
+        radial-gradient(500px 500px at 65% 15%, rgba(193,118,255,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    .grain{
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.22;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{
+      width:min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 48px;
+    }
+
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:16px;
+      padding: 10px 6px 18px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      user-select:none;
+    }
+
+    .logo{
+      width:44px; height:44px;
+      display:grid; place-items:center;
+      border-radius:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,.38);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(60,255,182,.35), transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(138,75,255,.35), transparent 58%);
+      filter: blur(10px);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .logo img{
+      position:relative;
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      display:block;
+      opacity:.96;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+    }
+
+    .brand h1{
+      font-size:14px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin:0;
+      color: rgba(245,246,255,.86);
+    }
+    .brand small{
+      display:block;
+      margin-top:2px;
+      font-size:12px;
+      color: var(--muted);
+      letter-spacing:.02em;
+    }
+
+    .hero{
+      position:relative;
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 500px at 50% 0%, rgba(138,75,255,.25), transparent 65%),
+        radial-gradient(600px 500px at 20% 70%, rgba(60,255,182,.18), transparent 70%);
+      filter: blur(8px);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .heroInner{
+      position:relative;
+      padding: 28px 22px 22px;
+      display:grid;
+      gap:18px;
+    }
+
+    .headline{
+      display:grid;
+      gap:10px;
+      text-align:center;
+      padding: 6px 4px 0;
+    }
+    .headline .t1{
+      font-size: clamp(22px, 4.5vw, 34px);
+      line-height:1.15;
+      font-weight: 800;
+    }
+    .headline .t2{
+      font-size: clamp(22px, 5.2vw, 44px);
+      line-height:1.08;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+    .headline .t2 b{
+      background: linear-gradient(90deg, var(--green), var(--purple2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .offerRow{
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+
+    .offerCard{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(10,10,18,.42);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 70px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position:relative;
+      overflow:hidden;
+      min-width: 290px;
+    }
+    .offerCard:before{
+      content:"";
+      position:absolute; inset:-50%;
+      background:
+        radial-gradient(circle at 25% 45%, rgba(60,255,182,.20), transparent 55%),
+        radial-gradient(circle at 70% 55%, rgba(138,75,255,.22), transparent 58%);
+      filter: blur(18px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .offerPct{
+      position:relative;
+      display:flex;
+      align-items:baseline;
+      gap:3px;
+      font-weight: 950;
+      letter-spacing: -.02em;
+      text-shadow: 0 0 24px rgba(60,255,182,.18);
+    }
+    .offerPct .n{ font-size: 44px; line-height:1; color: var(--green); }
+    .offerPct .s{ font-size: 18px; opacity:.9; margin-top: 3px; }
+    .offerText{
+      position:relative;
+      display:grid;
+      gap:2px;
+      padding-left: 14px;
+      border-left: 1px solid rgba(255,255,255,.12);
+    }
+    .offerText .k{ font-size: 14px; font-weight: 800; }
+    .offerText .d{ font-size: 13px; color: rgba(245,246,255,.70); }
+
+    .countdownBig{
+      width: min(520px, 100%);
+      text-align:center;
+      padding: 16px 16px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 80px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      align-content:center;
+      gap:6px;
+      min-height: 82px;
+    }
+    .countdownBig:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 30% 50%, rgba(60,255,182,.22), transparent 60%),
+        radial-gradient(circle at 70% 55%, rgba(138,75,255,.26), transparent 62%);
+      filter: blur(18px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .countdownBig__label{
+      position:relative;
+      font-size: 12px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: rgba(245,246,255,.72);
+      font-weight: 850;
+    }
+    .countdownBig__time{
+      position:relative;
+      font-variant-numeric: tabular-nums;
+      font-weight: 950;
+      letter-spacing: .08em;
+      line-height: 1.05;
+      font-size: clamp(28px, 6.6vw, 50px);
+      text-shadow: 0 0 28px rgba(60,255,182,.12);
+      color: var(--green);
+    }
+    .countdownBig__sub{
+      position:relative;
+      font-size: 12px;
+      color: rgba(245,246,255,.62);
+    }
+
+    .expired{
+      display:none;
+      margin: 8px auto 0;
+      width: fit-content;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255, 117, 117, .10);
+      border: 1px solid rgba(255, 117, 117, .25);
+      color: rgba(255,245,245,.9);
+      font-weight: 800;
+    }
+
+    /* ===== Laptop / Screen (sauber & premium) ===== */
+    .visual{
+      display:grid;
+      place-items:center;
+      margin-top: 6px;
+    }
+    .laptop{
+      width:min(860px, 100%);
+      aspect-ratio: 16/9;
+      border-radius: 22px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: 0 26px 90px rgba(0,0,0,.55);
+      transform: translateZ(0);
+    }
+    .laptop:before{
+      content:"";
+      position:absolute; inset:-20%;
+      background:
+        radial-gradient(circle at 50% 55%, rgba(138,75,255,.38), transparent 56%),
+        radial-gradient(circle at 20% 80%, rgba(60,255,182,.24), transparent 56%);
+      filter: blur(18px);
+      opacity:.55;
+      pointer-events:none;
+    }
+
+    .screen{
+      position:absolute;
+      inset: 10px 10px 40px 10px;
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.25),
+        0 10px 40px rgba(0,0,0,.20);
+    }
+
+    /* Kein Innenrand, keine Balken: wirkt wie ein echter Screenshot */
+    .screen img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit: cover;
+      object-position: 50% 0%;
+      transform: translateZ(0);
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    /* Edler Screen-Glanz */
+    .screen::after{
+      content:"";
+      position:absolute; inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 600px at 50% -20%, rgba(255,255,255,.10), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.04), transparent 18%, transparent 82%, rgba(0,0,0,.10));
+      mix-blend-mode: screen;
+      opacity:.85;
+    }
+
+    .base{
+      position:absolute;
+      left:10px; right:10px;
+      bottom:10px;
+      height:26px;
+      border-radius: 0 0 18px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      opacity:.9;
+    }
+    .glowUnder{
+      position:absolute;
+      left:50%;
+      top: calc(100% - 14px);
+      width: 88%;
+      height: 34%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 40% 40%, rgba(60,255,182,.35), transparent 60%),
+        radial-gradient(circle at 60% 55%, rgba(138,75,255,.40), transparent 62%);
+      filter: blur(18px);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .copy{
+      display:grid;
+      gap: 14px;
+      padding: 2px 8px 10px;
+      text-align:center;
+    }
+    .copy .line1{
+      font-size: clamp(16px, 2.8vw, 20px);
+      color: rgba(245,246,255,.90);
+      font-weight: 850;
+    }
+    .copy .line2{
+      font-size: 16px;
+      color: var(--muted);
+      line-height:1.5;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top: 2px;
+    }
+    .chip{
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color: rgba(245,246,255,.88);
+      font-size: 13px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .cta{
+      display:grid;
+      gap:14px;
+      margin-top: 6px;
+      padding: 10px 8px 10px;
+    }
+    .btnRow{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 900;
+      letter-spacing:.01em;
+      font-size: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .12s ease, filter .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn[aria-busy="true"]{ opacity:.75; cursor: progress; }
+
+    .btnPrimary{
+      color: #07130f;
+      background: linear-gradient(90deg, var(--green), var(--green2));
+      box-shadow: 0 18px 70px rgba(60,255,182,.18);
+    }
+    .btnPrimary:hover{ filter: brightness(1.05); }
+
+    .btnGhost{
+      color: rgba(245,246,255,.92);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 16px 60px rgba(0,0,0,.25);
+    }
+    .btnGhost:hover{ background: rgba(255,255,255,.07); }
+
+    .btnLink{
+      color: rgba(245,246,255,.90);
+      background: transparent;
+      border: 1px dashed rgba(255,255,255,.22);
+    }
+
+    .ctaNote{
+      font-size: 14px;
+      color: rgba(245,246,255,.78);
+      line-height:1.45;
+      text-align:center;
+    }
+
+    .domain{
+      display:inline-block;
+      margin-top: 6px;
+      font-size: clamp(18px, 3.5vw, 28px);
+      font-weight: 950;
+      letter-spacing:.01em;
+      background: linear-gradient(90deg, var(--green), var(--purple2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .formWrap{
+      margin-top: 10px;
+      padding: 18px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .formTitle{
+      margin: 0 0 12px;
+      text-align:center;
+      font-weight: 950;
+    }
+
+    .grid{
+      display:grid;
+      gap:10px;
+      grid-template-columns: 1fr;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    @media (min-width: 720px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+      .grid .full{ grid-column: 1 / -1; }
+    }
+
+    label{
+      display:grid;
+      gap:6px;
+      font-size: 13px;
+      color: rgba(245,246,255,.80);
+    }
+    input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
+      color: rgba(245,246,255,.92);
+      outline: none;
+    }
+    input:focus{
+      border-color: rgba(60,255,182,.35);
+      box-shadow: 0 0 0 4px rgba(60,255,182,.08);
+    }
+
+    .formActions{
+      display:flex;
+      justify-content:center;
+      margin-top: 10px;
+    }
+
+    .hint{
+      text-align:center;
+      color: rgba(245,246,255,.62);
+      font-size: 12px;
+      margin-top: 10px;
+      line-height:1.45;
+    }
+
+    .formMsg{
+      display:none;
+      max-width: 640px;
+      margin: 10px auto 0;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      text-align:center;
+      font-size: 13px;
+      color: rgba(245,246,255,.86);
+    }
+    .formMsg.ok{
+      border-color: rgba(60,255,182,.30);
+      background: rgba(60,255,182,.10);
+    }
+    .formMsg.err{
+      border-color: rgba(255, 117, 117, .35);
+      background: rgba(255, 117, 117, .10);
+    }
+
+    footer{
+      margin-top: 18px;
+      display:grid;
+      gap:10px;
+      text-align:center;
+      color: rgba(245,246,255,.60);
+      font-size: 12px;
+    }
+    footer a{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.22); }
+
+    @media (min-width: 880px){
+      .heroInner{ padding: 34px 32px 26px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="top">
+      <div class="brand" aria-label="LiPa Music Services">
+        <div class="logo" aria-hidden="true">
+          <img src="../Resources/Logo Transparent hell.png" alt="LiPa Logo" />
+        </div>
+        <div>
+          <h1>LiPa Music Services</h1>
+          <small>Webdesign · Hosting · Band-Services</small>
+        </div>
+      </div>
+    </div>
+
+    <section class="hero" aria-label="Saisonstart Webdesign Angebot">
+      <div class="heroInner">
+
+        <div class="headline">
+          <div class="t1">Deine Website genau so,<br>wie du sie brauchst?</div>
+          <div class="t2"><b>Machen wir für dich!</b></div>
+        </div>
+
+        <div class="offerRow" aria-label="Rabatt und Zeitraum">
+          <div class="offerCard" role="group" aria-label="10 Prozent Saisonstart-Rabatt">
+            <div class="offerPct" aria-hidden="true">
+              <div class="n">10</div><div class="s">%</div>
+            </div>
+            <div class="offerText">
+              <div class="k">Saisonstart-Rabatt</div>
+              <div class="d">Bis <span id="deadlineText">15.03.2026</span></div>
+            </div>
+          </div>
+
+          <div class="countdownBig" role="group" aria-label="Countdown bis Rabattende">
+            <div class="countdownBig__label">Rabatt endet in</div>
+            <div class="countdownBig__time" id="countdown">–</div>
+            <div class="countdownBig__sub">Tage : Stunden : Minuten : Sekunden</div>
+          </div>
+        </div>
+
+        <div class="expired" id="expiredBanner">Rabatt ist abgelaufen – aber anfragen lohnt sich trotzdem 😉</div>
+
+        <div class="visual" aria-label="Website Vorschau">
+          <div class="laptop">
+            <div class="screen">
+              <img
+                id="heroImage"
+                alt="Vorschau einer Website (Webdesign & Hosting)"
+                src="WebPages.png"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div class="base" aria-hidden="true"></div>
+            <div class="glowUnder" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="copy">
+          <div class="line1">Webdesign inkl. Hosting <span style="opacity:.9;">für Musiker und andere</span></div>
+          <div class="line2">
+            <b>Dein Projekt bestimmt den Preis.</b> Onepager oder mehrseitig, mobiloptimiert, schnell –
+            inkl. Domain, Setup &amp; SSL.
+          </div>
+
+          <div class="chips" aria-label="Highlights">
+            <div class="chip">✅ Mobile-first</div>
+            <div class="chip">✅ Schnell & clean</div>
+            <div class="chip">✅ SEO-Basics</div>
+            <div class="chip">✅ Hosting</div>
+            <div class="chip">✅ Support/Updates</div>
+          </div>
+        </div>
+
+        <div class="cta" aria-label="Anfrage Buttons">
+          <div class="btnRow">
+            <a class="btn btnPrimary" id="btnSite" href="#" target="_blank" rel="noopener">🌐 Website öffnen</a>
+            <a class="btn btnGhost" id="btnWhatsapp" href="#" target="_blank" rel="noopener">💬 WhatsApp Anfrage</a>
+            <a class="btn btnLink" id="btnMail" href="#">✉️ E-Mail Anfrage</a>
+          </div>
+
+          <div class="ctaNote">
+            <div><b>Oder hier eintragen – wir melden uns:</b></div>
+            <a class="domain" id="domainLink" href="#" target="_blank" rel="noopener">www.lipamusicservices.com</a>
+          </div>
+
+          <div class="formWrap" aria-label="Kontaktformular">
+            <h3 class="formTitle">Kurze Anfrage</h3>
+
+            <form id="quickForm" autocomplete="on">
+              <div class="grid">
+                <label>
+                  Name*
+                  <input type="text" name="name" required placeholder="Vorname Nachname" />
+                </label>
+
+                <label>
+                  E-Mail*
+                  <input type="email" name="email" required placeholder="name@mail.de" />
+                </label>
+
+                <label class="full">
+                  Telefon (optional)
+                  <input type="tel" name="phone" placeholder="+49 ..." />
+                </label>
+
+                <div class="formActions full">
+                  <button class="btn btnPrimary" id="btnSubmit" type="submit">📨 Anfrage senden</button>
+                </div>
+              </div>
+
+              <div class="hint">
+                Mit Absenden werden deine Daten an LiPa gesendet – wir melden uns fix zurück.
+              </div>
+
+              <div class="formMsg" id="formMsg" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> LiPa Music Services</div>
+      <div>
+        <a href="#" id="impressumLink">Impressum</a> ·
+        <a href="#" id="datenschutzLink">Datenschutz</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2uS1em5HPGblXhrXSv4W-TJBKfzGS5mUED_xLbaH6nidzU9vcEGD2PpS-PKMc7-lkFA/exec";
+
+    const SITE_SERVICES_WEBHOSTING = "https://lipamusicservices.com/Services-WebandHosting.html";
+    const YOUR_DOMAIN = "https://lipamusicservices.com";
+    const EMAIL_TO = "info@lipamusicservices.com";
+    const WHATSAPP_NUMBER = "4915225395955"; // ohne "+"
+
+    const DEADLINE = new Date(2026, 2, 15, 23, 59, 59);
+    const UTM = "?utm_source=share&utm_medium=landing&utm_campaign=saisonstart";
+
+    // =========================
+    // LINKS
+    // =========================
+    const btnSite = document.getElementById("btnSite");
+    const btnWhatsapp = document.getElementById("btnWhatsapp");
+    const btnMail = document.getElementById("btnMail");
+    const domainLink = document.getElementById("domainLink");
+
+    btnSite.href = SITE_SERVICES_WEBHOSTING + UTM;
+    domainLink.href = YOUR_DOMAIN + "/" + UTM;
+
+    const whatsappText = encodeURIComponent(
+      "Hi! Ich komme über eure Saisonstart-Werbung 😊\n" +
+      "Ich hätte gern eine Website.\n\n" +
+      "Name:\n" +
+      "E-Mail:\n" +
+      "Telefon (optional):\n"
+    );
+    btnWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
+
+    document.getElementById("impressumLink").href = YOUR_DOMAIN + "/impressum.html" + UTM;
+    document.getElementById("datenschutzLink").href = YOUR_DOMAIN + "/datenschutz.html" + UTM;
+
+    btnMail.href = `mailto:${encodeURIComponent(EMAIL_TO)}?subject=${encodeURIComponent("Webdesign Anfrage (Saisonstart 10%)")}`;
+
+    // =========================
+    // COUNTDOWN
+    // =========================
+    const countdownEl = document.getElementById("countdown");
+    const expiredBanner = document.getElementById("expiredBanner");
+    const deadlineText = document.getElementById("deadlineText");
+
+    function pad(n){ return String(n).padStart(2,"0"); }
+    function formatDE(date){
+      return `${pad(date.getDate())}.${pad(date.getMonth()+1)}.${date.getFullYear()}`;
+    }
+    deadlineText.textContent = formatDE(DEADLINE);
+
+    function tick(){
+      const now = new Date();
+      const diff = DEADLINE - now;
+
+      if (diff <= 0){
+        countdownEl.textContent = "00:00:00:00";
+        expiredBanner.style.display = "inline-block";
+        return;
+      }
+
+      const sec = Math.floor(diff / 1000);
+      const days = Math.floor(sec / 86400);
+      const hours = Math.floor((sec % 86400) / 3600);
+      const mins = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+
+      countdownEl.textContent = `${pad(days)}:${pad(hours)}:${pad(mins)}:${pad(s)}`;
+      expiredBanner.style.display = "none";
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // =========================
+    // FORM -> Google Script (robust: zeigt Erfolg sobald Request rausgeht)
+    // =========================
+    const form = document.getElementById("quickForm");
+    const btnSubmit = document.getElementById("btnSubmit");
+    const formMsg = document.getElementById("formMsg");
+
+    function setMsg(type, text){
+      formMsg.className = "formMsg " + (type || "");
+      formMsg.textContent = text;
+      formMsg.style.display = "block";
+    }
+
+    function setLoading(isLoading){
+      btnSubmit.setAttribute("aria-busy", String(isLoading));
+      btnSubmit.disabled = isLoading;
+      btnSubmit.textContent = isLoading ? "Sende..." : "📨 Anfrage senden";
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      formMsg.style.display = "none";
+
+      const fd = new FormData(form);
+      const payload = Object.fromEntries(fd.entries());
+
+      if (!payload.name || !payload.email) {
+        setMsg("err", "Bitte Name und E-Mail ausfüllen.");
+        return;
+      }
+
+      // Zusatzinfos
+      payload.source = "Landing Saisonstart";
+      payload.page = location.href;
+
+      const body = new URLSearchParams(payload);
+
+      setLoading(true);
+
+      try{
+        // Versuch 1: normal POST (ohne JSON => kein Preflight Stress)
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          body
+        });
+
+        // Wichtig: Wir werten die Response NICHT aus (CORS kann sie blocken),
+        // sondern zeigen Erfolg sobald der Request rausging.
+        setMsg("ok", "✅ Danke! Anfrage ist raus – wir melden uns bei dir.");
+        form.reset();
+
+      } catch (err){
+        // Fallback: no-cors "fire & forget"
+        try{
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: body.toString()
+          });
+
+          setMsg("ok", "✅ Danke! Anfrage ist raus – wir melden uns bei dir.");
+          form.reset();
+        } catch(_){
+          setMsg("err", "❌ Senden hat nicht geklappt. Bitte kurz per WhatsApp oder E-Mail anfragen.");
+        }
+      } finally{
+        setLoading(false);
+      }
+    });
+  </script>
+</body>
+</html>
