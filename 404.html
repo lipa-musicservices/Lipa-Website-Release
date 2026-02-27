@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiPa – 404</title>
+
+  <style>
+    /* =========================================================
+       LiPa – 404.html (INLINE CSS)
+       - clean light
+       - sticky footer
+       - HeadBar + FootBar via jQuery load
+       ========================================================= */
+
+    :root{
+      --bg0:#f6f7fb;
+      --bg1:#ffffff;
+
+      --text:#0e1116;
+      --muted:rgba(14,17,22,.68);
+
+      --card:#ffffff;
+      --card2:#fbfcfe;
+      --border:rgba(10,16,26,.12);
+
+      --shadow:0 18px 45px rgba(10,16,26,.10);
+      --shadow2:0 10px 26px rgba(10,16,26,.08);
+
+      --radius:18px;
+      --container:1120px;
+
+      --accent:#35ff7a;
+      --accent2:#7c5cff;
+
+      --topbarH:88px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
+    html{ background: var(--bg0); }
+    body{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+
+      background:
+        radial-gradient(1000px 600px at 15% 0%, rgba(124,92,255,.10), transparent 55%),
+        radial-gradient(1000px 600px at 85% 5%, rgba(53,255,122,.08), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+
+      overflow-x:hidden;
+      padding-top: var(--topbarH);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    p{ margin:0 0 14px; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:min(var(--container), calc(100% - 40px));
+      margin-inline:auto;
+    }
+
+    main.page{ flex:1 0 auto; width:100%; }
+    #FootBar{ flex:0 0 auto; margin-top:auto; }
+
+    /* Page Hero (internal pages) */
+    .pageHero{ padding:44px 0 26px; }
+    .pageHero__inner{ display:grid; gap:10px; }
+    .pageHero__title{
+      margin:0;
+      font-size:clamp(34px, 5vw, 56px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .pageHero__subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(15px, 1.4vw, 18px);
+      line-height:1.6;
+      max-width:75ch;
+    }
+
+    .section{ padding:40px 0 86px; }
+
+    /* 404 Layout */
+    .nfShell{
+      display:grid;
+      gap:18px;
+      padding: 10px 0 72px;
+    }
+
+    .nfCard{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(10,16,26,.12);
+      border-radius:18px;
+      box-shadow:0 18px 45px rgba(10,16,26,.10);
+      overflow:hidden;
+    }
+
+    .nfCard__head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 16px;
+      background: linear-gradient(90deg, rgba(53,255,122,.18), rgba(124,160,255,.10));
+      border-bottom:1px solid rgba(10,16,26,.10);
+      flex-wrap:wrap;
+    }
+    .nfCard__kicker{
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.85;
+    }
+    .nfCard__meta{
+      font-size:12px;
+      opacity:.7;
+      white-space:nowrap;
+    }
+
+    .nfCard__body{
+      padding:16px;
+      color:rgba(14,17,22,.92);
+      line-height:1.65;
+      font-size:15px;
+    }
+
+    .nfGrid{
+      display:grid;
+      grid-template-columns: 1.1fr;
+      gap:16px;
+      align-items:start;
+      margin-top:10px;
+    }
+
+    .nfBig{
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.84));
+      border:1px solid rgba(10,16,26,.12);
+      box-shadow:0 22px 60px rgba(16,24,40,.08);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .nfBig::before{
+      content:"";
+      position:absolute;
+      inset:-70px;
+      background:
+        radial-gradient(700px 260px at 20% 0%, rgba(124,92,255,.12), transparent 60%),
+        radial-gradient(700px 260px at 80% 0%, rgba(53,255,122,.10), transparent 60%);
+      z-index:0;
+
+      /* FIX: Overlay darf keine Klicks fressen */
+      pointer-events:none;
+    }
+
+    .nfBig__code{
+      position:relative;
+      z-index:1;
+      font-weight:950;
+      letter-spacing:-.04em;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height:1;
+      margin:0 0 8px;
+      background: linear-gradient(90deg, rgba(53,255,122,.95), rgba(124,92,255,.90));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .nfBig__title{
+      position:relative;
+      z-index:1;
+      margin:0 0 8px;
+      font-weight:950;
+      letter-spacing:-.02em;
+      font-size: clamp(18px, 2.2vw, 26px);
+      color:rgba(14,17,22,.92);
+    }
+
+    .nfActions{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+
+      /* FIX: Buttons über Overlay */
+      position:relative;
+      z-index:1;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:750;
+      letter-spacing:.01em;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease, opacity .15s ease;
+      user-select:none;
+      cursor:pointer;
+
+      /* FIX: anklickbar, sicher oben */
+      position:relative;
+      z-index:2;
+    }
+    .btn:active{ transform:translateY(1px); }
+
+    .btn--primary{
+      background: linear-gradient(90deg, rgba(53,255,122,.95), rgba(124,92,255,.85));
+      color:#06110a;
+      box-shadow:0 14px 34px rgba(16,24,40,.18);
+    }
+    .btn--primary:hover{ opacity:.95; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .nfGrid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px){
+      .nfActions{ flex-direction:column; }
+      .nfActions .btn{ width:100%; }
+    }
+  </style>
+</head>
+
+<body class="page--legal">
+  <header id="HeadBar"></header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="container pageHero__inner">
+        <h1 class="pageHero__title">Seite nicht gefunden</h1>
+        <p class="pageHero__subtitle">Die URL sieht kreativ aus – aber hier gibt’s leider nichts.</p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="section container">
+      <div class="nfShell">
+        <article class="nfCard" aria-label="404 Inhalt">
+          <div class="nfCard__head">
+            <div class="nfCard__kicker"></div>
+            <div class="nfCard__meta" id="nfMeta"></div>
+          </div>
+
+          <div class="nfCard__body">
+            <div class="nfGrid">
+              <!-- Big main -->
+              <div class="nfBig">
+                <div class="nfBig__code">404</div>
+                <h2 class="nfBig__title">Diese Seite existiert nicht.</h2>
+
+                <div class="nfActions">
+                  <a class="btn btn--primary" id="goHome" href="#">Zur Startseite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="FootBar"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#HeadBar").load("FixedPages/HeadBar.html");
+      $("#FootBar").load("FixedPages/FootBar.html");
+    });
+  </script>
+
+  <script>
+    // Home-Link robust setzen (funktioniert auch bei GitHub Pages Subpath)
+    (function(){
+      const a = document.getElementById("goHome");
+      if(!a) return;
+
+      // Basis = aktuelles Verzeichnis (dort liegt i.d.R. index.html)
+      // Beispiel: /repo/404.html -> /repo/
+      const path = location.pathname;
+      const base = path.endsWith("/") ? path : path.substring(0, path.lastIndexOf("/") + 1);
+
+      a.href = base + "index.html";
+    })();
+  </script>
+</body>
+</html>
